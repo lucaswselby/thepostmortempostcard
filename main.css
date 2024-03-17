@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    padding-left: 0;
+}
+nav ul li {
+    flex-grow: 1;
+}
+.dropdownInner {
+    display: none;
+    position: absolute;
+}
+.dropdownInner li {
+    width: 20vw
+}
+.dropdownOuter:hover .dropdownInner  {
+    display: block;
+}
+
+#homeRight {
+    border: solid 1px black;
+}
+
+.featuredWorks {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+.featuredWork {
+    border: solid 1px black;
+    text-align: center;
+    margin: 5% 10%;
+}
+
+.issueNav {
+    border: solid 1px black;
+}
+
+footer {
+    text-align: center;
+    padding: 1em 10px;
+}
