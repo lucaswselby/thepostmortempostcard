@@ -20,7 +20,7 @@ nav ul {
     padding-left: 0;
     border: solid 1px black;
     margin-top: 0;
-    box-shadow: 0 .5em .5em;
+    box-shadow: 0 .3em .3em #999E9C;
 }
 nav ul li {
     flex-grow: 1;
