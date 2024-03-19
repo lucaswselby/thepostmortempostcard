@@ -19,6 +19,8 @@ nav ul {
     grid-template-columns: repeat(5, 20%);
     padding-left: 0;
     border: solid 1px black;
+    margin-top: 0;
+    box-shadow: 0 .5em .5em;
 }
 nav ul li {
     flex-grow: 1;
