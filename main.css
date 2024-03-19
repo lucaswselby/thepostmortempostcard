@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -15,6 +16,7 @@ nav ul {
     display: grid;
     grid-template-columns: repeat(5, 20%);
     padding-left: 0;
+    border: solid 1px black;
 }
 nav ul li {
     flex-grow: 1;
