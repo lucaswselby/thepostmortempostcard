@@ -48,6 +48,7 @@ nav ul li {
     border: solid 1px black;
     text-align: center;
     margin: 5% 10%;
+    aspect-ratio: 1 / 1;
 }
 
 .issueNav {
@@ -62,5 +63,9 @@ footer {
 @media only screen and (max-width: 600px) {
     nav ul {
         display: block;
+    }
+
+    .dropdownOuter:hover .dropdownInner  {
+        display: none;
     }
 }
