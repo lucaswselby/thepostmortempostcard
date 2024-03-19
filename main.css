@@ -46,9 +46,11 @@ nav ul li {
 }
 .featuredWork {
     border: solid 1px black;
-    text-align: center;
     margin: 5% 10%;
     aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .issueNav {
