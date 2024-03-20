@@ -11,19 +11,6 @@
 
         <!-- Favicon -->
         <!-- <link rel="icon" href="./favicon.png" type="image/x-icon"> -->
-
-        <style>
-            main {
-                display: grid;
-                grid-template-columns: 80% 20%;
-            }
-
-            @media only screen and (max-width: 600px) {
-                main {
-                    display: block;
-                }
-            }
-        </style>
     </head>
 
     <body>
@@ -45,7 +32,18 @@
             </nav>
         </header>
 
-        <main>
+        <main class="issue">
+            <div class="issueNav">
+                <div class="menuIcon">
+                    <div class="menuIconLine"></div>
+                    <div class="menuIconLine"></div>
+                    <div class="menuIconLine"></div>
+                </div>
+                <ul>
+                    <li><a href="./issue1story1.html">Story 1</a></li>
+                </ul>
+            </div>
+            
             <div class="featuredWorks">
                 <div class="featuredWork"><div class="verticalAlign"><a href="./issue1story1.html">"An Edgar Allen Poe Story" by Shakespeare</a></div></div>
                 <div class="featuredWork"><div class="verticalAlign">poem</div></div>
@@ -54,10 +52,6 @@
                 <div class="featuredWork"><div class="verticalAlign">story</div></div>
                 <div class="featuredWork"><div class="verticalAlign">story</div></div>
             </div>
-
-            <ul class="issueNav">
-                <li><a href="./issue1story1.html">Story 1</a></li>
-            </ul>
         </main>
 
         <footer>

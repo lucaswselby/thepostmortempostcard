@@ -1,3 +1,7 @@
+:root {
+    
+}
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -40,9 +44,23 @@ nav ul li {
     border: solid 1px black;
 }
 
+.issue {    
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+.issueNav {
+    grid-column: 2;
+}
+.menuIcon {
+    display: none;
+}
+.issueNav ul {
+    border: solid 1px black;
+}
 .featuredWorks {
     display: grid;
     grid-template-columns: repeat(2, 50%);
+    grid-column: 1;
 }
 .featuredWork {
     border: solid 1px black;
@@ -52,10 +70,6 @@ nav ul li {
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-
-.issueNav {
-    border: solid 1px black;
 }
 
 footer {
@@ -71,10 +85,33 @@ footer {
         display: none;
     }
 
-    .featuredWorks {
+    .issue {
         display: block;
     }
     .issueNav {
+        position: sticky;
+        top: 0;
+    }
+    .menuIcon {
+        cursor: pointer;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+    .menuIconLine {
+        width: 35px;
+        height: 5px;
+        background-color: black;
+        margin: 3px 0;
+    }
+    .featuredWorks {
+        display: block;
+    }
+    .issueNav ul {
         display: none;
+        background-color: white;
+    }
+    .issueNav:hover ul {
+        display: block;
     }
 }
