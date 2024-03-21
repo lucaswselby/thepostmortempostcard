@@ -86,20 +86,21 @@ footer {
         cursor: pointer;
         display: flex;
         flex-flow: column nowrap;
+        position: absolute;
     }
     .menuIconLine {
         width: 35px;
         height: 5px;
-        background-color: black;
+        background-color: white;
         margin: 3px 0;
     }
     nav ul {
         display: none;
     }
-    nav:hover ul {
+    header:hover nav ul {
         display: block;
     }
-    nav:hover .dropdownInner, .dropdownOuter:hover .dropdownInner {
+    header:hover .dropdownInner, .dropdownOuter:hover .dropdownInner {
         display: none;
     }
 
