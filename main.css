@@ -45,9 +45,6 @@ nav ul li {
     display: grid;
     grid-template-columns: 80% 20%;
 }
-.issueNav {
-    grid-column: 2;
-}
 .menuIcon {
     display: none;
 }
@@ -57,7 +54,6 @@ nav ul li {
 .featuredWorks {
     display: grid;
     grid-template-columns: repeat(2, 50%);
-    grid-column: 1;
 }
 .featuredWork {
     border: solid 1px black;
@@ -67,6 +63,11 @@ nav ul li {
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.piece img {
+    max-width: 100%;
+    max-height: 100vh;
 }
 
 footer {
