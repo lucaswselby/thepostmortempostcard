@@ -37,6 +37,10 @@ nav ul li {
     display: block;
 }
 
+main {
+    margin: 1em;
+}
+
 #homeRight {
     border: solid 1px black;
 }
