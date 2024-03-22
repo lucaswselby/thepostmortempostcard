@@ -71,7 +71,7 @@ main {
 .featuredWork {
     border: solid 1px black;
     margin: 5% 10%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 2 / 1;
     display: flex;
     justify-content: center;
     align-items: center;
