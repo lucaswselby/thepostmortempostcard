@@ -59,6 +59,10 @@ main {
     grid-template-columns: 80% 20%;
 }
 
+#feed {
+    height: 100vh;
+    overflow-y: scroll;
+}
 .feedItem {
     border: solid 1px black;
     min-height: var(--feedItemHeight);
@@ -75,6 +79,7 @@ main {
     display: flex;
     flex-flow: column nowrap;
     margin: 1em;
+    margin-left: 0;
 }
 .feedItemContent a {
     align-self: flex-end;
@@ -88,7 +93,7 @@ main {
 }
 .feedImgPiece img {
     height: var(--feedItemHeight);
-    aspect-ratio: 1 / 1;
+    max-width: var(--feedItemHeight);
     margin: var(--feedImgMargin);
     box-shadow: 0 .2em .2em #999E9C;
     grid-row-end: span 2;
@@ -176,6 +181,10 @@ footer {
         display: block;
     }
 
+    #feed {
+        height: auto;
+        overflow-y: auto;
+    }
     .feedItem {
         margin: 1em 0;
     }
@@ -184,6 +193,7 @@ footer {
     }
     .feedImgPiece .feedItemContent {
         grid-column-end: span 2;
+        margin-left: 1em;
     }
 
     .issueNav {
