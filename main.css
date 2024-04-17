@@ -115,9 +115,11 @@ main {
     border: solid 1px black;
     padding: 1em;
 }
+
 .menuIcon {
     display: none;
 }
+
 .issueNav ul {
     border: solid 1px black;
 }
@@ -158,25 +160,39 @@ footer {
         position: absolute;
         background-color: white;
     }
+
+    /* https://www.w3schools.com/howto/howto_css_menu_icon.asp */
     .menuIcon {
         cursor: pointer;
         display: flex;
         flex-flow: column nowrap;
         position: absolute;
     }
-    .menuIconLine {
+    .bar1, .bar2, .bar3 {
         width: 35px;
         height: 5px;
+        transition: 0.4s;
         background-color: white;
         margin: 3px 0;
+    }  
+    /* Rotate first bar */
+    .menuIcon.change .bar1 {
+        transform: translate(0, 11px) rotate(-45deg);
+    }  
+    /* Fade out the second bar */
+    .menuIcon.change .bar2 {opacity: 0;}  
+    /* Rotate last bar */
+    .menuIcon.change .bar3 {
+        transform: translate(0, -11px) rotate(45deg);
     }
+    
     nav ul {
         display: none;
     }
-    header:hover nav ul {
+    nav.change ul {
         display: block;
-    }
-    header:hover .dropdownInner, .dropdownOuter:hover .dropdownInner {
+    }    
+    .change .dropdownInner, .dropdownOuter:hover .dropdownInner  {
         display: none;
     }
 

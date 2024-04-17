@@ -15,10 +15,11 @@
 
     <body>
         <header>
-            <div class="menuIcon">
-                <div class="menuIconLine"></div>
-                <div class="menuIconLine"></div>
-                <div class="menuIconLine"></div>
+            <!-- https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
+            <div class="menuIcon" onclick="myFunction(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
             </div>
             
             <h1>header</h1>
@@ -105,4 +106,5 @@
         document.getElementsByTagName("MAIN")[0].style.margin = mainMargin;
         document.getElementById("feed").style.height = `calc(100vh - calc(${mainMargin} * 2) - ${document.getElementsByTagName("HEADER")[0].offsetHeight + document.getElementsByTagName("FOOTER")[0].offsetHeight}px)`;
     </script>
+    <script type="text/javascript" src="./main.js"></script>
 </html>
