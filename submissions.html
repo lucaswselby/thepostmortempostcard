@@ -32,10 +32,27 @@
             <form id="submissionForm"action="https://formspree.io/f/myyrlegk" method="POST">
                 <div>SUBMIT TO ME!!</div>
                 <div>
-                    <label for="file">Upload:</label>
-                    <input type="file" name="file" id="file" accept="text/plain, image/*, .pdf, .doc, .docx" required>
-                    <input type="submit" value="Submit">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name">
                 </div>
+                <div>
+                    <label for="email">Email*:</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div>
+                    <label for="title">Title*:</label>
+                    <input type="text" name="title" id="title" required>
+                </div>
+                <div>
+                    <label for="file">Upload*:</label>
+                    <input type="file" name="file" id="file" accept="text/plain, image/*, .pdf, .doc, .docx" required>
+                </div>
+                <div>
+                    <label for="x">X:</label>
+                    <input type="url" name="x" id="x">
+                </div>
+                <input type="submit" value="Submit">
+                <div>*required</div>
                 <div>Powered by Formspree</div>
             </form>
         </main>
