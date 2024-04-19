@@ -71,14 +71,12 @@
                 </form>
             </div>
         </main>
-
-        <footer></footer>
     </body>
 
     <script type="text/javascript" src="./main.js"></script>
     <script type="text/javascript">
         const mainMargin = "2em";
         document.getElementsByTagName("MAIN")[0].style.margin = mainMargin;
-        document.getElementById("feed").style.height = `calc(100vh - ${mainMargin} * 2 - ${document.getElementsByTagName("HEADER")[0].offsetHeight + document.getElementsByTagName("FOOTER")[0].offsetHeight}px)`;
+        document.getElementById("feed").style.height = `calc(100vh - ${mainMargin} * 2 - ${document.getElementsByTagName("HEADER")[0].offsetHeight + (document.getElementsByTagName("FOOTER")[0] ? document.getElementsByTagName("FOOTER")[0].offsetHeight : 0)}px)`;
     </script>
 </html>
