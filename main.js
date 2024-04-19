@@ -12,7 +12,7 @@ document.getElementsByTagName("HEADER")[0].innerHTML = `<!-- https://www.w3schoo
     <div class="bar3"></div>
 </div>
 
-<h1>header</h1>
+<h1>the header</h1>
 
 <nav>
     <ul>
