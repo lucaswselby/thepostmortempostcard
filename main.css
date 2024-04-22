@@ -1,6 +1,8 @@
 :root {
+    --mainMargin: 2em;
     --feedItemLength: 100px;
     --feedImgMargin: 20px;
+    --twentyPercent: 20%;
 }
 
 body {
@@ -52,16 +54,25 @@ nav ul li {
 }
 
 main {
-    margin: 2em;
+    margin: var(--mainMargin);
 }
 .grid8020 {    
     display: grid;
-    grid-template-columns: 80% 20%;
+    grid-template-columns: 80% var(--twentyPercent);
 }
 
+#feedWrapper {
+    position: relative;
+}
 #feed {
     height: 100vh;
-    overflow-y: scroll;
+    overflow-y: auto;
+}
+#backToTop {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: white;
 }
 .feedItem {
     border: solid 1px black;
@@ -149,7 +160,7 @@ footer {
             
 @media only screen and (max-width: 600px) {
     header {
-        position: sticky;
+        position: relative;
         top: 0;
     }
     header h1 {

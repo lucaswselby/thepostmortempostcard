@@ -17,42 +17,45 @@
         <header></header>
 
         <main class="grid8020">
-            <div id="feed">
-                <article class="feedItem feedImgPiece" id="feed4">
-                    <img src="Issue1Rose1.gif" alt="Rose by Ade Seegmiller">                        
-                    <div class="feedItemHeader">
-                        <h2>ROSE</h2>
-                        <h3>by: Ade Seegmiller</h3>
-                    </div>
-                    <div class="feedItemContent">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <!--<p>blurb</p>-->
-                        <a href="issue1story1.html" aria-label="Title by Author">read more</a>
-                    </div>
-                </article>
-                <article class="feedItem feedPiece" id="feed3">
-                    <div class="feedItemContent">
-                        <h2>TITLE</h2>
-                        <h3>by: Author</h3>
-                        <p>blurb</p>
-                        <a href="issue1story1.html" aria-label="Title by Author">read more</a>
-                    </div>
-                </article>
-                <article class="feedItem feedUpdate" id="feed2">
-                    <div class="feedItemContent">
-                        <h2>Update Title</h2>
-                        <h3>Date</h3>
-                        <p>blurb</p>
-                    </div>
-                </article>
-                <article class="feedItem feedPiece" id="feed1">
-                    <div class="feedItemContent">
-                        <h2>Deadline for Issue 1</h2>
-                        <h3>DEADLINE: March 31st</h3>
-                        <p>pertinant info</p>
-                        <a href="submissions.html">submission</a>
-                    </div>
-                </article>
+            <div id="feedWrapper">
+                <div id="feed">
+                    <article class="feedItem feedImgPiece" id="feed4">
+                        <img src="Issue1Rose1.gif" alt="Rose by Ade Seegmiller">                        
+                        <div class="feedItemHeader">
+                            <h2>ROSE</h2>
+                            <h3>by: Ade Seegmiller</h3>
+                        </div>
+                        <div class="feedItemContent">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <!--<p>blurb</p>-->
+                            <a href="issue1story1.html" aria-label="Title by Author">read more</a>
+                        </div>
+                    </article>
+                    <article class="feedItem feedPiece" id="feed3">
+                        <div class="feedItemContent">
+                            <h2>TITLE</h2>
+                            <h3>by: Author</h3>
+                            <p>blurb</p>
+                            <a href="issue1story1.html" aria-label="Title by Author">read more</a>
+                        </div>
+                    </article>
+                    <article class="feedItem feedUpdate" id="feed2">
+                        <div class="feedItemContent">
+                            <h2>Update Title</h2>
+                            <h3>Date</h3>
+                            <p>blurb</p>
+                        </div>
+                    </article>
+                    <article class="feedItem feedPiece" id="feed1">
+                        <div class="feedItemContent">
+                            <h2>Deadline for Issue 1</h2>
+                            <h3>DEADLINE: March 31st</h3>
+                            <p>pertinant info</p>
+                            <a href="submissions.html">submission</a>
+                        </div>
+                    </article>
+                </div>                
+                <a href="#feed4" id="backToTop">Back to Top</a>
             </div>
 
             <div id="homeRight">
@@ -75,8 +78,12 @@
 
     <script type="text/javascript" src="./main.js"></script>
     <script type="text/javascript">
+        // sets feed height
         const mainMargin = "2em";
         document.getElementsByTagName("MAIN")[0].style.margin = mainMargin;
         document.getElementById("feed").style.height = `calc(100vh - ${mainMargin} * 2 - ${document.getElementsByTagName("HEADER")[0].offsetHeight + (document.getElementsByTagName("FOOTER")[0] ? document.getElementsByTagName("FOOTER")[0].offsetHeight : 0)}px)`;
+
+        // sets back to top position
+        document.getElementById("backToTop").style.right;
     </script>
 </html>
