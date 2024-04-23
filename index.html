@@ -78,10 +78,11 @@
 
     <script type="text/javascript" src="./main.js"></script>
     <script type="text/javascript">
-        // sets feed height
+        // resizes feed height for desktop and mobile
         const mainMargin = "2em";
         document.getElementsByTagName("MAIN")[0].style.margin = mainMargin;
-        document.getElementById("feed").style.height = `calc(100vh - ${mainMargin} * 2 - ${document.getElementsByTagName("HEADER")[0].offsetHeight + (document.getElementsByTagName("FOOTER")[0] ? document.getElementsByTagName("FOOTER")[0].offsetHeight : 0)}px)`;
+        // https://areknawo.com/css-media-rule-in-javascript/
+        document.getElementById("feed").style.height = `calc(100vh - ${mainMargin} * 2 - ${document.getElementsByTagName("HEADER")[0].offsetHeight + (matchMedia("only screen and (max-width: 600px)").matches ? document.getElementById("homeRight").offsetHeight : 0) + (document.getElementsByTagName("FOOTER")[0] ? document.getElementsByTagName("FOOTER")[0].offsetHeight : 0)}px)`;
 
         // sets back to top position
         document.getElementById("backToTop").style.right;
