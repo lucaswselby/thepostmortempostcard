@@ -45,8 +45,29 @@
                     <input type="text" name="title" id="title" required>
                 </div>
                 <div>
+                    <label for="genre">Genre*:</label>
+                    <select name="genre" id="genre">
+                        <option value="fiction">Fiction</option>
+                        <option value="nonfiction">Nonfiction</option>
+                        <option value="poetry">Poetry</option>
+                        <option value="art">Art</option>
+                        <option value="photography">Photography</option>
+                    </select>
+                </div>
+                <div>
                     <label for="file">Upload*:</label>
                     <input type="file" name="file" id="file" accept="text/plain, image/*, .pdf, .doc, .docx" required>
+                </div>
+                <div>
+                    <label for="tags">Tags:</label>
+                    <input list="tagsList" name="tags" id="tags">
+                    <datalist id="tagsList">
+                        <option value="fantasy">fantasy</option>
+                        <option value="science fiction">science fiction</option>
+                        <option value="horror">horror</option>
+                    </datalist>
+                    <input type="button" id="addTag" value="Add">
+                    <ul id="addedTags"></ul>
                 </div>
                 <div>
                     <label for="x">X:</label>
@@ -70,4 +91,22 @@
     </body>
     
     <script type="text/javascript" src="./main.js"></script>
+    <script type="text/javascript">
+        // adds new tag to list of tags
+        document.getElementById("addTag").onclick = () => {
+            const newTagValue = document.getElementById("tags").value;
+            if (newTagValue) {
+                const newTag = document.createElement("li");
+                newTag.setAttribute("id", newTagValue);
+                newTag.innerHTML = newTagValue;
+                newTag.onclick = () => {document.getElementById(newTagValue).remove();};
+                newTag.style.cursor = "pointer";
+                newTag.style.listStyleType = "\"x \"";
+                if (!document.getElementById(newTagValue)) {
+                    document.getElementById("addedTags").appendChild(newTag);
+                }
+                document.getElementById("tags").value = "";
+            }
+        };
+    </script>
 </html>
