@@ -38,7 +38,15 @@
                 </div>
                 <div>
                     <label for="email">Email*:</label>
-                    <input type="email" name="email" id="email" placeholder="name@example.com">
+                    <input type="email" name="email" id="email" placeholder="name@example.com" required>
+                </div>
+                <div>
+                    <label for="coverLetter">Cover Letter:</label>
+                    <textarea id="coverLetter" name="coverLetter"></textarea>
+                </div>
+                <div>
+                    <label for="authorPic">Author Picture:</label>
+                    <input type="file" id="authorPic" name="authorPic" accept="image/*">
                 </div>
                 <div>
                     <label for="title">Title*:</label>
@@ -46,7 +54,7 @@
                 </div>
                 <div>
                     <label for="genre">Genre*:</label>
-                    <select name="genre" id="genre">
+                    <select name="genre" id="genre" required>
                         <option value="fiction">Fiction</option>
                         <option value="nonfiction">Nonfiction</option>
                         <option value="poetry">Poetry</option>
@@ -68,6 +76,10 @@
                     </datalist>
                     <input type="button" id="addTag" value="Add">
                     <ul id="addedTags"></ul>
+                </div>
+                <div>
+                    <label for="website">Website:</label>
+                    <input type="url" id="website" name="website">
                 </div>
                 <div>
                     <label for="x">X:</label>
