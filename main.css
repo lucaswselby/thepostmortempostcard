@@ -138,11 +138,11 @@ main {
 .issueNav ul {
     border: solid 1px black;
 }
-.featuredWorks {
+.featuredWorks, #featuredIssues {
     display: grid;
     grid-template-columns: repeat(2, 50%);
 }
-.featuredWork {
+.featuredWork, .featuredIssue {
     border: solid 1px black;
     margin: 5% 10%;
     aspect-ratio: 2 / 1;

@@ -17,7 +17,7 @@ document.getElementsByTagName("HEADER")[0].innerHTML = `<!-- https://www.w3schoo
 <nav>
     <ul>
         <li><a href="./index.html">HOME</a></li>
-        <li class="dropdownOuter"><a href="./issue1.html">ISSUES</a>
+        <li class="dropdownOuter"><a href="./issues.html">ISSUES</a>
             <ul class="dropdownInner">
                 <li><a href="./issue1.html">Issue 1</a></li>
             </ul>
