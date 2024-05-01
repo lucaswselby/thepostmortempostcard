@@ -16,18 +16,30 @@
     <body>
         <header></header>
 
-        <main class="grid8020">            
-            <div id="featuredIssues">
-                <div class="featuredIssue"><div class="verticalAlign"><a href="./issue1.html">Issue 1</a></div></div>
-                <div class="featuredIssue"><div class="verticalAlign">Issue 2</div></div>
+        <main>
+            <div id="submissionPopUp">
+                <div id="exitIcon">X</div>
+                <h1>SUBMIT TO ME!!</h1>
+                <a href="./submissions.html">Submissions</a>
             </div>
+            <div class="grid8020">
+                <div id="featuredIssues">
+                    <div class="featuredIssue"><div class="verticalAlign"><a href="./issue1.html">Issue 1</a></div></div>
+                    <div class="featuredIssue"><div class="verticalAlign">Issue 2</div></div>
+                </div>
 
-            <ul class="issueNav">
-                <li><a href="./issue1.html">Issue 1</a></li>
-                <li>Issue 2</li>
-            </ul>
+                <ul class="issueNav">
+                    <li><a href="./issue1.html">Issue 1</a></li>
+                    <li>Issue 2</li>
+                </ul>
+            </div>
         </main>
     </body>
 
     <script type="text/javascript" src="./main.js"></script>
+    <script type="text/javascript">
+        document.getElementById("exitIcon").onclick = () => {
+            document.getElementById("submissionPopUp").style.display = "none";
+        };
+    </script>
 </html>
