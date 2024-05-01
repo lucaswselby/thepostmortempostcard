@@ -68,6 +68,7 @@ main {
 #feed {
     height: 100vh;
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
 #backToTop {
     position: absolute;
