@@ -157,28 +157,58 @@ main {
             animation: fadein 1s;
 }
 @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+        opacity: 0;
+        top: 10vh;
+    }
+    to {
+        opacity: 1;
+        top: 5vh;
+    }
 }   
 /* Firefox < 16 */
 @-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+        opacity: 0;
+        top: 10vh;
+    }
+    to {
+        opacity: 1;
+        top: 5vh;
+    }
 }
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+        opacity: 0;
+        top: 10vh;
+    }
+    to {
+        opacity: 1;
+        top: 5vh;
+    }
 }
 /* Internet Explorer */
 @-ms-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+        opacity: 0;
+        top: 10vh;
+    }
+    to {
+        opacity: 1;
+        top: 5vh;
+    }
 }
 /* Opera < 12.1 */
 @-o-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+        opacity: 0;
+        top: 10vh;
+    }
+    to {
+        opacity: 1;
+        top: 5vh;
+    }
 }
 #exitIcon {
     position: absolute;
