@@ -55,9 +55,9 @@ nav ul li {
 }
 
 main {
-    margin: var(--mainMargin);
+    margin: var(--mainMargin) var(--mainMargin) 0 var(--mainMargin);
 }
-.grid8020 {    
+.grid8020 {
     display: grid;
     grid-template-columns: 80% var(--twentyPercent);
 }
@@ -272,6 +272,9 @@ footer {
     nav {
         position: absolute;
         background-color: white;
+    }
+    main {
+        margin: var(--mainMargin) 0 0 0;
     }
 
     /* https://www.w3schools.com/howto/howto_css_menu_icon.asp */
