@@ -209,6 +209,18 @@ main {
     max-height: 100vh;
 }
 
+#addedTags li {
+    display: inline;
+    border: solid 1px gray;
+    padding: .3em;
+    border-radius: 1em;
+    cursor: pointer;
+    margin: .3em;
+}
+#addedTags li:hover {
+    background-color: lightgray;
+}
+
 .teamPic {
     width: 200px;
 }

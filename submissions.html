@@ -110,10 +110,8 @@
             if (newTagValue) {
                 const newTag = document.createElement("li");
                 newTag.setAttribute("id", newTagValue);
-                newTag.innerHTML = newTagValue;
+                newTag.innerHTML = `X ${newTagValue}`;
                 newTag.onclick = () => {document.getElementById(newTagValue).remove();};
-                newTag.style.cursor = "pointer";
-                newTag.style.listStyleType = "\"x \"";
                 if (!document.getElementById(newTagValue)) {
                     document.getElementById("addedTags").appendChild(newTag);
                 }
