@@ -322,9 +322,6 @@ footer {
         height: auto;
         overflow-y: auto;
     }
-    .feedItem {
-        margin: 1em 0;
-    }
     .feedImgPiece img {
         grid-row-end: span 1;
     }
