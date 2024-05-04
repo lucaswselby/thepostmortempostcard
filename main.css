@@ -127,6 +127,11 @@ main {
 #goals {
     margin-bottom: 1em;
 }
+#mailingListForm {
+    margin: 1em 0;
+    position: absolute;
+    bottom: 0;
+}
 
 #homeRight {
     border: solid 1px black;
@@ -328,6 +333,11 @@ footer {
     .feedImgPiece .feedItemContent {
         grid-column-end: span 2;
         margin-left: 1em;
+    }
+
+    #mailingListForm {
+        position: static;
+        margin: 0;
     }
 
     .issueNav {
