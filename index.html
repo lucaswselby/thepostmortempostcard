@@ -81,8 +81,8 @@
         // resizes feed height for desktop and mobile
         const mainMargin = "2em";
         const resizeScreen = () => {
-            document.getElementsByTagName("MAIN")[0].style.margin = `${mainMargin} ${matchMedia("only screen and (max-width: 600px)").matches ? "0 0 0" : `${mainMargin} 0 ${mainMargin}`}`;
-            document.getElementById("feed").style.height = `calc(${window.innerHeight}px - ${mainMargin} - ${document.getElementsByTagName("HEADER")[0].offsetHeight + (matchMedia("only screen and (max-width: 600px)").matches ? document.getElementById("homeRight").offsetHeight : 0) + (document.getElementsByTagName("FOOTER")[0] ? document.getElementsByTagName("FOOTER")[0].offsetHeight : 0)}px)`;
+            document.getElementsByTagName("MAIN")[0].style.margin = matchMedia("only screen and (max-width: 600px)").matches ? "0" : `0 ${mainMargin}`;
+            document.getElementById("feed").style.height = `calc(${window.innerHeight}px - ${document.getElementsByTagName("HEADER")[0].offsetHeight + (matchMedia("only screen and (max-width: 600px)").matches ? document.getElementById("homeRight").offsetHeight : 0) + (document.getElementsByTagName("FOOTER")[0] ? document.getElementsByTagName("FOOTER")[0].offsetHeight : 0)}px)`;
         };
         resizeScreen();
         document.getElementsByTagName("BODY")[0].onresize = resizeScreen;
