@@ -284,6 +284,9 @@ details[open] .chevron {
     transition: transform .5s;
     transform: rotateX(180deg);
 }
+details p {
+    margin-left: 2em;
+}
             
 @media only screen and (max-width: 600px) {
     header {
