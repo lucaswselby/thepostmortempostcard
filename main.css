@@ -91,6 +91,7 @@ main {
     min-height: var(--feedItemLength);
     margin: 1em;
     box-shadow: 0 .2em .2em var(--shadowColor);
+    background-color: #c1b4b4;
 }
 .feedItem h2 {
     margin-bottom: 0;
