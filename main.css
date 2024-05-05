@@ -285,7 +285,7 @@ details[open] .chevron {
     transform: rotateX(180deg);
 }
 details p {
-    margin-left: 6em;
+    margin-left: 5em;
 }
             
 @media only screen and (max-width: 600px) {
