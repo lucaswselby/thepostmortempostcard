@@ -3,11 +3,14 @@
     --feedItemLength: 100px;
     --feedImgMargin: 20px;
     --twentyPercent: 20%;
+    --shadowColor: #5a4252;
 }
 
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #a79494;
+    color: #0d0107;
 }
 
 header {
@@ -16,7 +19,7 @@ header {
 }
 header h1 {
     margin: 0;
-    background-color: #92B2A8;
+    background-color: #0e213a;
     color: white;
     font-size: 4em;
 }
@@ -28,9 +31,9 @@ nav ul {
     padding-left: 0;
     border: solid 1px black;
     margin-top: 0;
-    box-shadow: 0 .3em .3em #999E9C;
+    box-shadow: 0 .3em .3em var(--shadowColor);
     padding: 1em 0;
-    background-color: white;
+    background-color: var(--shadowColor);
 }
 nav a {
     color: black;
@@ -84,7 +87,7 @@ main {
     border: solid 1px black;
     min-height: var(--feedItemLength);
     margin: 1em;
-    box-shadow: 0 .2em .2em #999E9C;
+    box-shadow: 0 .2em .2em var(--shadowColor);
 }
 .feedItem h2 {
     margin-bottom: 0;
@@ -112,7 +115,7 @@ main {
     max-height: var(--feedItemLength);
     max-width: var(--feedItemLength);
     margin: var(--feedImgMargin);
-    box-shadow: 0 .2em .2em #999E9C;
+    box-shadow: 0 .2em .2em var(--shadowColor);
     grid-row-end: span 2;
 }
 .feedUpdate h3 {
@@ -295,7 +298,7 @@ details p {
     }
     header h1 {
         font-size: 2em;
-        box-shadow: 0 .3em .15em #999E9C;
+        box-shadow: 0 .3em .15em var(--shadowColor);
     }
     nav {
         position: absolute;
