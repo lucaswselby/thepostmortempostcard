@@ -260,9 +260,29 @@ main {
     width: 200px;
 }
 
-footer {
-    text-align: center;
-    padding: 1em 10px;
+summary {
+    margin: 0.3em 0 0.8em 0;
+    list-style: none;
+}
+details {
+    margin-bottom: 1em;
+}
+details[open] {
+    margin-bottom: 2em;
+}
+details h2 {
+    display: inline;
+}
+summary::-webkit-details-marker, summary::marker {
+    display: none;
+}
+details .chevron {
+    display: inline;
+    transition: transform .5s;
+}
+details[open] .chevron {
+    transition: transform .5s;
+    transform: rotateX(180deg);
 }
             
 @media only screen and (max-width: 600px) {
