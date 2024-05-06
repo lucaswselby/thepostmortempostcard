@@ -4,6 +4,7 @@
     --feedImgMargin: 20px;
     --twentyPercent: 20%;
     --shadowColor: #5a4252;
+    --headerFontColor: white;
 }
 
 body {
@@ -13,14 +14,22 @@ body {
     color: #0d0107;
 }
 
+a {
+    text-decoration: none;
+}
+a:visited {
+    color: inherit;
+}
+
 header {
     width: 100%;
     text-align: center;
+    color: var(--headerFontColor);
 }
 header h1 {
     margin: 0;
     background-color: #0e213a;
-    color: white;
+    color: var(--headerFontColor);
     font-size: 4em;
 }
 
@@ -34,13 +43,6 @@ nav ul {
     box-shadow: 0 .3em .3em var(--shadowColor);
     padding: 1em 0;
     background-color: var(--shadowColor);
-    color: white;
-}
-nav a {
-    text-decoration: none;
-}
-nav a:visited {
-    color: white;
 }
 #feedWrapper a, #feedWrapper a:visited {
     color: black;
@@ -52,6 +54,7 @@ nav ul li {
     display: none;
     position: absolute;
     background-color: var(--shadowColor);
+    z-index: 1;
 }
 .dropdownInner li {
     width: 20vw;
@@ -61,7 +64,7 @@ nav ul li {
 }
 
 main {
-    margin: 0 var(--mainMargin);
+    margin: var(--mainMargin);
 }
 .grid8020 {
     display: grid;
@@ -92,6 +95,7 @@ main {
     margin: 1em;
     box-shadow: 0 .2em .2em var(--shadowColor);
     background-color: #af9e9e;
+    z-index: 0;
 }
 .feedItem h2 {
     margin-bottom: 0;
@@ -286,6 +290,7 @@ summary::-webkit-details-marker, summary::marker {
 details .chevron {
     display: inline;
     transition: transform .5s;
+    cursor: pointer;
 }
 details[open] .chevron {
     transition: transform .5s;
@@ -322,7 +327,7 @@ details p {
         width: 35px;
         height: 5px;
         transition: 0.4s;
-        background-color: white;
+        background-color: var(--headerFontColor);
         margin: 3px 0;
     }  
     /* Rotate first bar */
