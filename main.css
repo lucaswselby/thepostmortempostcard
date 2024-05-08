@@ -97,7 +97,7 @@ main {
     border: solid 1px black;
     min-height: var(--feedItemLength);
     margin: 1em;
-    box-shadow: 0 .2em .2em var(--shadowColor);
+    box-shadow: -.2em .2em .2em var(--shadowColor);
     background-color: var(--secondaryBackground);
     z-index: 0;
 }
