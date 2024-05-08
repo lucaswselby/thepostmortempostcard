@@ -3,7 +3,7 @@
     --feedItemLength: 100px;
     --feedImgMargin: 20px;
     --twentyPercent: 20%;
-    --shadowColor: #364254;
+    --shadowColor: #333143;
     --headerFontColor: white;
     --primaryBackground: #c1b4b4;
     --secondaryBackground: #d3caca;
@@ -46,7 +46,7 @@ nav ul {
     margin: 0;
     box-shadow: 0 .3em .3em var(--shadowColor);
     padding: 1em 0;
-    background-color: var(--shadowColor);
+    background-color: #364254;
 }
 #feedWrapper a, #feedWrapper a:visited {
     color: black;
