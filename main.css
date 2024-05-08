@@ -267,6 +267,7 @@ main {
     border-radius: 1em;
     cursor: pointer;
     margin: .3em;
+    background-color: white;
 }
 #addedTags li:hover {
     background-color: lightgray;
