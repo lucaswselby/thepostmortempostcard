@@ -376,6 +376,9 @@ details p {
         margin-left: 1em;
     }
 
+    #homeRight {
+        margin-top: 0;        
+    }
     #mailingListForm {
         position: static;
         margin: 0;
