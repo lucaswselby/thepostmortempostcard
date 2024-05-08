@@ -152,6 +152,7 @@ main {
     border: solid 1px black;
     padding: 1em;
     background-color: var(--tertiaryBackground);
+    margin-top: 1em;
 }
 
 .menuIcon {
