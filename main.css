@@ -10,7 +10,7 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #a79494;
+    background-color: #c1b4b4;
     color: #0d0107;
 }
 
@@ -94,7 +94,7 @@ main {
     min-height: var(--feedItemLength);
     margin: 1em;
     box-shadow: 0 .2em .2em var(--shadowColor);
-    background-color: #af9e9e;
+    background-color: #d3caca;
     z-index: 0;
 }
 .feedItem h2 {
@@ -147,6 +147,7 @@ main {
 #homeRight {
     border: solid 1px black;
     padding: 1em;
+    background-color: #c7bbbb;
 }
 
 .menuIcon {
