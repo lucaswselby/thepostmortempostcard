@@ -86,7 +86,7 @@ main {
 #backToTop {
     position: absolute;
     bottom: 5px;
-    right: 0;
+    right: .5em;
     background-color: var(--tertiaryBackground);
     border: solid black 1px;
     border-radius: 10px;
