@@ -400,3 +400,10 @@ details p {
         display: block;
     }
 }
+
+/* https://stackoverflow.com/questions/50840168/how-to-detect-if-the-os-is-in-dark-mode-in-browsers */
+@media (prefers-color-scheme: dark) {
+    :root {
+        filter: invert(1);
+    }
+}
