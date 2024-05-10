@@ -4,7 +4,10 @@
     --feedImgMargin: 20px;
     --twentyPercent: 20%;
     --shadowColor: #333143;
+    --headerBackground: #0e213a;
     --headerFontColor: white;
+    --navBackground: #364254;
+    --bodyFontColor: #0d0107;
     --primaryBackground: #c1b4b4;
     --secondaryBackground: #d3caca;
     --tertiaryBackground: #c7bbbb;
@@ -14,7 +17,7 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--primaryBackground);
-    color: #0d0107;
+    color: var(--bodyFontColor);
 }
 
 a {
@@ -32,7 +35,7 @@ header {
 }
 header h1 {
     margin: 0;
-    background-color: #0e213a;
+    background-color: var(--headerBackground);
     color: var(--headerFontColor);
     font-size: 4em;
 }
@@ -42,14 +45,14 @@ nav ul {
     display: grid;
     grid-template-columns: repeat(5, 20%);
     padding-left: 0;
-    border: solid 1px black;
+    border: solid 1px var(--bodyFontColor);
     margin: 0;
     box-shadow: 0 .3em .3em var(--shadowColor);
     padding: 1em 0;
-    background-color: #364254;
+    background-color: var(--navBackground);
 }
 #feedWrapper a, #feedWrapper a:visited {
-    color: black;
+    color: var(--bodyFontColor);
 }
 nav ul li {
     flex-grow: 1;
@@ -88,7 +91,7 @@ main {
     bottom: 5px;
     right: .5em;
     background-color: var(--tertiaryBackground);
-    border: solid black 1px;
+    border: solid var(--bodyFontColor) 1px;
     border-radius: 10px;
     padding: 5px;
     margin-right: 1em;
@@ -98,7 +101,7 @@ main {
     color: white !important;    
 }
 .feedItem {
-    border: solid 1px black;
+    border: solid 1px var(--bodyFontColor);
     min-height: var(--feedItemLength);
     margin: 1em;
     box-shadow: -.2em .2em .2em var(--shadowColor);
@@ -153,7 +156,7 @@ main {
 }
 
 #homeRight {
-    border: solid 1px black;
+    border: solid 1px var(--bodyFontColor);
     padding: 1em;
     background-color: var(--tertiaryBackground);
     margin-top: 1em;
@@ -172,7 +175,7 @@ main {
     align-content: center;
     text-align: center;
     background-color: white;
-    border: solid 2px black;
+    border: solid 2px var(--bodyFontColor);
     border-radius: 5vh;
 
     /* https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load */
@@ -244,14 +247,14 @@ main {
 }
 
 .issueNav ul {
-    border: solid 1px black;
+    border: solid 1px var(--bodyFontColor);
 }
 .featuredWorks, #featuredIssues {
     display: grid;
     grid-template-columns: repeat(2, 50%);
 }
 .featuredWork, .featuredIssue {
-    border: solid 1px black;
+    border: solid 1px var(--bodyFontColor);
     margin: 5% 10%;
     aspect-ratio: 2 / 1;
     display: flex;
@@ -381,7 +384,7 @@ details p {
     }
     #backToTop:hover {
         background-color: var(--tertiaryBackground);
-        color: black !important;
+        color: var(--bodyFontColor) !important;
     }
 
     #homeRight {
