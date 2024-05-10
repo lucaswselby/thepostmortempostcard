@@ -155,6 +155,9 @@ main {
     bottom: 0;
     max-width: calc(var(--twentyPercent) - var(--mainMargin));
 }
+#mailingListForm input {
+    max-width: 100%;
+}
 
 #homeRight {
     border: solid 1px var(--bodyFontColor);
