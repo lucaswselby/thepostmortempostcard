@@ -406,5 +406,14 @@ details p {
 
 /* https://stackoverflow.com/questions/50840168/how-to-detect-if-the-os-is-in-dark-mode-in-browsers */
 @media (prefers-color-scheme: dark) {
-    
+    :root {
+        --shadowColor: #050d17;
+        --headerBackground: #07101d;
+        --headerFontColor: white;
+        --navBackground: #091728;
+        --bodyFontColor: #white;
+        --primaryBackground: #1d0d2c;
+        --secondaryBackground: #60556b;
+        --tertiaryBackground: #4a3d56;
+    }
 }
