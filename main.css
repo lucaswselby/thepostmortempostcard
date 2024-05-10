@@ -47,7 +47,6 @@ nav ul {
     display: grid;
     grid-template-columns: repeat(5, 20%);
     padding-left: 0;
-    border: solid 1px var(--bodyFontColor);
     margin: 0;
     box-shadow: 0 .3em .3em var(--shadowColor);
     padding: 1em 0;
@@ -93,7 +92,6 @@ main {
     bottom: 5px;
     right: .5em;
     background-color: var(--tertiaryBackground);
-    border: solid var(--bodyFontColor) 1px;
     border-radius: 10px;
     padding: 5px;
     margin-right: 1em;
@@ -103,7 +101,6 @@ main {
     color: white !important;    
 }
 .feedItem {
-    border: solid 1px var(--bodyFontColor);
     min-height: var(--feedItemLength);
     margin: 1em;
     box-shadow: -.2em .2em .2em var(--shadowColor);
@@ -162,7 +159,6 @@ main {
 }
 
 #homeRight {
-    border: solid 1px var(--bodyFontColor);
     padding: 1em;
     background-color: var(--tertiaryBackground);
     margin-top: 1em;
@@ -181,7 +177,6 @@ main {
     align-content: center;
     text-align: center;
     background-color: var(--secondaryBackground);
-    border: solid 2px var(--bodyFontColor);
     border-radius: 5vh;
 
     /* https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load */
@@ -252,15 +247,12 @@ main {
     cursor: pointer;
 }
 
-.issueNav ul {
-    border: solid 1px var(--bodyFontColor);
-}
 .featuredWorks, #featuredIssues {
     display: grid;
     grid-template-columns: repeat(2, 50%);
 }
 .featuredWork, .featuredIssue {
-    border: solid 1px var(--bodyFontColor);
+    background-color: var(--secondaryBackground);
     margin: 5% 10%;
     aspect-ratio: 2 / 1;
     display: flex;
@@ -276,7 +268,6 @@ main {
 
 #addedTags li {
     display: inline;
-    border: solid 1px gray;
     padding: .3em;
     border-radius: 1em;
     cursor: pointer;
@@ -421,9 +412,5 @@ details p {
         --primaryBackground: #1d0d2c;
         --secondaryBackground: #60556b;
         --tertiaryBackground: #4a3d56;
-    }
-
-    nav ul, #backToTop, .feedItem, #homeRight, #submissionPopUp, .navIssue ul {
-        border: none;
     }
 }
