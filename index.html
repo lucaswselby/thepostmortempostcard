@@ -87,12 +87,15 @@
 
         // resizes header on scroll
         /* https://stackoverflow.com/questions/15195209/how-to-get-font-size-in-html */
-        var headerFontSize = parseFloat(window.getComputedStyle(document.getElementsByTagName("H1")[0], null).getPropertyValue('font-size'));
+        const headerFontSize = parseFloat(window.getComputedStyle(document.getElementsByTagName("H1")[0], null).getPropertyValue('font-size'));
         /* https://stackoverflow.com/questions/64624094/how-can-i-make-text-in-header-smaller-when-user-scroll-down */
         document.getElementById("feed").onscroll = () => {
-            var scrollTop = (document.getElementById("feed").scrollTop) - (document.getElementById("feed").clientTop || 0);
-            var size = headerFontSize - ((scrollTop / 10) || 0);
-            if (size <= 15) size = 15;
+            const scrollTop = (document.getElementById("feed").scrollTop) - (document.getElementById("feed").clientTop || 0);
+            let size = headerFontSize - ((scrollTop / 10) || 0);
+            const minSize = 15;
+            if (size <= minSize) {
+                size = minSize;
+            }
             document.getElementsByTagName("H1")[0].style.fontSize = `${size}px`;
             resizeScreen();
         };
