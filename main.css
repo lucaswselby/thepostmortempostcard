@@ -174,7 +174,7 @@ main {
     width: 90vw;
     align-content: center;
     text-align: center;
-    background-color: white;
+    background-color: var(--secondaryBackground);
     border: solid 2px var(--bodyFontColor);
     border-radius: 5vh;
 
@@ -415,6 +415,9 @@ details p {
         --primaryBackground: #1d0d2c;
         --secondaryBackground: #60556b;
         --tertiaryBackground: #4a3d56;
+    }
+
+    nav ul, #backToTop, .feedItem, #homeRight, #submissionPopUp, .navIssue ul {
         border: none;
     }
 }
