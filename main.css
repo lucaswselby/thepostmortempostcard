@@ -150,9 +150,10 @@ main {
     margin-bottom: 1em;
 }
 #mailingListForm {
-    margin: 1em 0;
+    padding: 1em 0;
     position: absolute;
     bottom: 0;
+    max-width: calc(var(--twentyPercent) - var(--mainMargin));
 }
 
 #homeRight {
