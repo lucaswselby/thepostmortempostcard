@@ -32,8 +32,6 @@ header {
     width: 100%;
     text-align: center;
     color: var(--headerFontColor);
-    position: absolute;
-    top: 0;
 }
 header h1 {
     margin: 0;
@@ -312,9 +310,6 @@ details p {
 }
             
 @media only screen and (max-width: 600px) {
-    header {
-        top: 0;
-    }
     header h1 {
         font-size: 3em;
         box-shadow: 0 .3em .15em var(--shadowColor);

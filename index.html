@@ -80,7 +80,6 @@
     <script type="text/javascript">
         // resizes feed height for desktop and mobile
         const resizeScreen = () => {
-            document.getElementsByTagName("MAIN")[0].style.marginTop = `${document.getElementsByTagName("HEADER")[0].offsetHeight}px`;
             document.getElementById("feed").style.height = `calc(${window.innerHeight}px - ${document.getElementsByTagName("HEADER")[0].offsetHeight + (matchMedia("only screen and (max-width: 600px)").matches ? document.getElementById("homeRight").offsetHeight : 0) + (document.getElementsByTagName("FOOTER")[0] ? document.getElementsByTagName("FOOTER")[0].offsetHeight : 0)}px - 1px)`;
         };
         resizeScreen();
