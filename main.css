@@ -415,5 +415,6 @@ details p {
         --primaryBackground: #1d0d2c;
         --secondaryBackground: #60556b;
         --tertiaryBackground: #4a3d56;
+        border: none;
     }
 }
