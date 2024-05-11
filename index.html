@@ -92,7 +92,7 @@
         document.getElementById("feed").onscroll = () => {
             const scrollTop = (document.getElementById("feed").scrollTop) - (document.getElementById("feed").clientTop || 0);
             let size = headerFontSize - ((scrollTop / 10) || 0);
-            const minSize = 15;
+            const minSize = 30;
             if (size <= minSize) {
                 size = minSize;
             }

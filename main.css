@@ -37,7 +37,7 @@ header h1 {
     margin: 0;
     background-color: var(--headerBackground);
     color: var(--headerFontColor);
-    font-size: 4em;
+    font-size: 5em;
 }
 
 nav ul {
