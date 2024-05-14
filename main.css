@@ -245,6 +245,13 @@ main {
     cursor: pointer;
 }
 
+.verticalAlign {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 .featuredWorks, #featuredIssues {
     display: grid;
     grid-template-columns: repeat(2, 50%);
@@ -252,11 +259,35 @@ main {
 .featuredWork, .featuredIssue {
     background-color: var(--secondaryBackground);
     margin: 5% 10%;
+    transition: margin .5s;
     aspect-ratio: 2 / 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
+}
+.featuredWork:hover {
+    margin: 5%;
+    transition: margin .5s;
+}
+
+/* https://stackoverflow.com/questions/22808040/fading-out-text-on-overflow-with-css-if-the-text-is-bigger-than-allowed */
+.featuredWork .preview {
+    height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(180deg, #000 60%, transparent);
+}
+.featuredWork .textPreview p {
+    margin: 0;
+    text-align: justify;
+    text-overflow: ellipsis;
+}
+.featuredWork .textPreview img {
+    display: none;
+}
+.featuredWork a {
+    position: absolute;
+    padding: 1em;
+    background-color: var(--tertiaryBackground);
+    top: calc(50% - 1em);
 }
 
 .piece img {
