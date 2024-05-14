@@ -168,6 +168,7 @@ main {
 
 #submissionPopUp {
     position: fixed;
+    z-index: 1;
     top: 5vh;
     left: 5vw;
     height: 90vh;
@@ -251,6 +252,7 @@ main {
     justify-content: center;
     align-items: center;
     position: relative;
+    z-index: 0;
 }
 .featuredWorks, #featuredIssues {
     display: grid;
@@ -262,6 +264,12 @@ main {
     transition: margin .5s;
     aspect-ratio: 2 / 1;
     text-align: center;
+}
+.featuredWork a, .featuredIssue a {
+    position: absolute;
+    padding: 1em;
+    background-color: var(--tertiaryBackground);
+    top: calc(50% - 1em);
 }
 .featuredWork:hover {
     margin: 5%;
@@ -282,12 +290,6 @@ main {
 }
 .featuredWork .textPreview img {
     display: none;
-}
-.featuredWork a {
-    position: absolute;
-    padding: 1em;
-    background-color: var(--tertiaryBackground);
-    top: calc(50% - 1em);
 }
 
 .piece img {

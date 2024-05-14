@@ -57,7 +57,4 @@ if (document.getElementById("roseAdeSeegmiller")) document.getElementById("roseA
 <p>Maddyn stands there in the hall, illuminated by the bathroom light that sneaks its way out from the door that continues to open and close like nothing happened and the distant party lights that still flash on and off in multiple colors.  She leans back against the door and takes a deep breath. A sob escapes her lips only to be swallowed up by thumping music. Tears spill down her cheeks. She makes no attempt to brush them away. If you were to look closely you might see that in certain lighting her tears run black. After a few moments, she gathers herself, wipes away the tears, and walks back into the party.</p>
 <img src="./Issue1Rose4.gif" alt="Girl crying black tears">
 <p>The members of Alpha Phi Alpha are still where she left them no more than 15 minutes ago. Before she turns away from them, she makes note of the two boys that were eyeing each other up earlier are now heavily making out on the dance floor. It is what Maddyn needs to walk away, leaving Trevor's Body and her guilt behind. <em>Now we can move on to the fun stuff.</em></p>`;
-if (document.getElementById("waterAdeSeegmiller")) {
-    document.getElementById("waterAdeSeegmiller").src = "./Water.jpg";
-    document.getElementById("waterAdeSeegmiller").alt = "Water";
-}
+if (document.getElementById("waterAdeSeegmiller")) document.getElementById("waterAdeSeegmiller").innerHTML = `<img src="./Water.jpg" alt="Water">`;
