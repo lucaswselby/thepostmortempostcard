@@ -266,11 +266,9 @@ main {
     text-align: center;
 }
 .featuredWork a, .featuredIssue a {
-    --padding: 1em;
     position: absolute;
-    padding: var(--padding);
+    padding: 1em;
     background-color: var(--tertiaryBackground);
-    top: calc(50% - var(--padding) - .5em);
 }
 .featuredWork:hover {
     margin: 5%;
