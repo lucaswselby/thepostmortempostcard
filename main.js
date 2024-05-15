@@ -32,8 +32,8 @@ document.getElementsByTagName("HEADER")[0].innerHTML = `<!-- https://www.w3schoo
 </footer>`;*/
 
 // sharing capabilities for pieces
-if (document.getElementById("shareIcons")) document.getElementById("shareIcons").innerHTML = `<a class="share" onclick="Share.facebook('URL','TITLE','IMG_PATH','DESC')"><img src="./facebook_icon.ico" alt="Share on Facebook"></a>
-<a class="share" onclick="Share.twitter('URL','TITLE')"><img src="x_icon.svg" alt="Share on Twitter" class="darkMode"></a>`;
+if (document.getElementById("shareIcons")) document.getElementById("shareIcons").innerHTML = `<a class="share" onclick="Share.facebook('${document.URL}','${document.getElementsByTagName("H2")[0].innerHTML} by ${document.getElementsByTagName("H3")[0].innerHTML}','IMG_PATH','DESC')"><img src="./facebook_icon.ico" alt="Share on Facebook"></a>
+<a class="share" onclick="Share.twitter('${document.URL}','${document.getElementsByTagName("H2")[0].innerHTML} by ${document.getElementsByTagName("H3")[0].innerHTML}')"><img src="x_icon.svg" alt="Share on Twitter" class="darkMode"></a>`;
 // https://www.webdesign.org/html-and-css/tutorials/how-to-create-a-share-button-for-your-site.22180.html
 Share = {
     facebook: function(purl, ptitle, pimg, text) {
