@@ -296,7 +296,7 @@ main {
     min-width: 100%;
     min-height: 100%;
 }
-.featuredWork .imgPreview:hover img {
+.featuredWork:hover .imgPreview img {
     transform: translate(-50%, -50%);
     transition: transform 2s;
 }
