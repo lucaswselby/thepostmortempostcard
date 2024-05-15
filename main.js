@@ -31,50 +31,6 @@ document.getElementsByTagName("HEADER")[0].innerHTML = `<!-- https://www.w3schoo
     <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/lucaswselby/zine" target="_blank">Zine</a> &copy; 2024 by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/lucaswselby" target="_blank">Lucas Selby</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
 </footer>`;*/
 
-// https://codepen.io/alvarotrigo/pen/KKvOGNb
-gsap.registerPlugin(ScrollTrigger);
-// REVEAL //
-gsap.utils.toArray(".featuredWork").forEach(function (elem) {
-  ScrollTrigger.create({
-    trigger: elem,
-    start: "top 95%",
-    end: "bottom 5%",
-    markers: false,
-    onEnter: function () {
-      gsap.fromTo(
-        elem,
-        { x: -100, autoAlpha: 0 }, // debug: starts page 100px down and offsets start/end of onscreen elements by 100px
-        {
-          duration: 1.25,
-          x: 0,
-          autoAlpha: 1,
-          ease: "back",
-          overwrite: "auto"
-        }
-      );
-    },
-    onLeave: function () {
-      gsap.fromTo(elem, { autoAlpha: 1 }, { autoAlpha: 0, overwrite: "auto" });
-    },
-    onEnterBack: function () {
-      gsap.fromTo(
-        elem,
-        { x: -100, autoAlpha: 0 },
-        {
-          duration: 1.25,
-          x: 0,
-          autoAlpha: 1,
-          ease: "back",
-          overwrite: "auto"
-        }
-      );
-    },
-    onLeaveBack: function () {
-      gsap.fromTo(elem, { autoAlpha: 1 }, { autoAlpha: 0, overwrite: "auto" });
-    }
-  });
-});
-
 // pieces
 if (document.getElementById("roseAdeSeegmiller")) document.getElementById("roseAdeSeegmiller").innerHTML = `<p>Every Thursday night, the old warehouse by the river would shake from the deep bass that reverberated inside its walls. Lights would flash up through the second story windows changing colors every ten seconds. Large droves of 20 somethings would pour in after a long day of work or classes. This Thursday is no exception.</p>
 <img src="./Issue1Rose1.gif" alt="Girl with strobe effect">
