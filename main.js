@@ -37,8 +37,8 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.utils.toArray(".featuredWork").forEach(function (elem) {
   ScrollTrigger.create({
     trigger: elem,
-    start: "top 90%",
-    end: "bottom 10%",
+    start: "top 95%",
+    end: "bottom 5%",
     markers: false,
     onEnter: function () {
       gsap.fromTo(
