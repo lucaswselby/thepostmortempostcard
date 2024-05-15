@@ -23,6 +23,7 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
 }
 a:visited {
     color: inherit;
@@ -306,6 +307,10 @@ main {
     max-width: 100%;
     max-height: 100vh;
 }
+.share img {
+    margin: 1em;
+    height: 2em;
+}
 
 #addedTags li {
     display: inline;
@@ -450,5 +455,8 @@ details p {
         --primaryBackground: #1d0d2c;
         --secondaryBackground: #60556b;
         --tertiaryBackground: #4a3d56;
+    }
+    .darkMode {
+        filter: invert(1);
     }
 }
