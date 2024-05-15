@@ -265,6 +265,9 @@ main {
     aspect-ratio: 2 / 1;
     text-align: center;
 }
+.featuredWork {
+    visibility: hidden;
+}
 .featuredWork a, .featuredIssue a {
     position: absolute;
     padding: 1em;
@@ -274,7 +277,6 @@ main {
     margin: 5%;
     transition: margin .5s;
 }
-
 /* https://stackoverflow.com/questions/22808040/fading-out-text-on-overflow-with-css-if-the-text-is-bigger-than-allowed */
 .featuredWork .preview {
     height: 100%;
@@ -289,6 +291,10 @@ main {
 }
 .featuredWork .textPreview img {
     display: none;
+}
+.featuredWork .imgPreview img {
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .piece img {
