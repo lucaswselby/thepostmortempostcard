@@ -125,22 +125,34 @@ if (document.getElementById("search")) {
             };
 
             // adds results
+            let addedPieces = [];
             pieces.forEach(piece => {
                 if (piece.title.includes(searchValue)) {
-                    results.appendChild(newResult(piece, "title"));
+                    addedPieces.push(newResult(piece, "title"));
                 }
-                else if (piece.author.includes(searchValue)) {
-                    results.appendChild(newResult(piece, "author"));
+            });
+            pieces.forEach(piece => {
+                if (piece.author.includes(searchValue) && !addedPieces.includes(newResult(piece, "title"))) {
+                    addedPieces.push(newResult(piece, "author"));
                 }
-                else if (piece.genre.includes(searchValue)) {
-                    results.appendChild(newResult(piece, "genre"));
+            });
+            pieces.forEach(piece => {
+                if (piece.genre.includes(searchValue) && !addedPieces.includes(newResult(piece, "title")) && !addedPieces.includes(newResult(piece, "author"))) {
+                    addedPieces.push(newResult(piece, "genre"));
                 }
-                else if (piece.tags.includes(searchValue)) {
-                    results.appendChild(newResult(piece, "tags"));
+            });
+            pieces.forEach(piece => {
+                if (piece.tags.includes(searchValue) && !addedPieces.includes(newResult(piece, "title")) && !addedPieces.includes(newResult(piece, "author")) && !addedPieces.includes(newResult(piece, "genre"))) {
+                    addedPieces.push(newResult(piece, "tags"));
                 }
-                else if (piece.content.includes(searchValue)) {
-                    results.appendChild(newResult(piece, "content"));
+            });
+            pieces.forEach(piece => {
+                if (piece.content.includes(searchValue) && !addedPieces.includes(newResult(piece, "title")) && !addedPieces.includes(newResult(piece, "author")) && !addedPieces.includes(newResult(piece, "genre")) && !addedPieces.includes(newResult(piece, "tags"))) {
+                    addedPieces.push(newResult(piece, "content"));
                 }
+            });
+            addedPieces.forEach(addedResult => {
+                results.appendChild(addedResult);
             });
 
             // no results
