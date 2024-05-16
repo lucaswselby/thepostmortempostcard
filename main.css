@@ -42,9 +42,10 @@ header h1 {
 }
 
 nav ul {
+    --navs: 6;
     list-style-type: none;
     display: grid;
-    grid-template-columns: repeat(5, 20%);
+    grid-template-columns: repeat(var(--navs), calc(100% / var(--navs)));
     padding-left: 0;
     margin: 0;
     box-shadow: 0 .3em .3em var(--shadowColor);
