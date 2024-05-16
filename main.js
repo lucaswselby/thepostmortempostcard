@@ -97,6 +97,11 @@ pieces.forEach(piece => {
     if (document.getElementById(`p${piece.id}`)) document.getElementById(`p${piece.id}`).innerHTML = piece.content;
 });
 
+// https://www.geeksforgeeks.org/how-to-strip-out-html-tags-from-a-string-using-javascript/#
+const stripHTML = html => {
+    return html.replaceAll(/(<([^>]+)>)/ig, '');
+};
+
 // search
 if (document.getElementById("search")) {
     // searches pieces for matching search value
@@ -114,7 +119,7 @@ if (document.getElementById("search")) {
                 if (attribute === "content") {
                     const additionalCharacters = 30;
                     let context = piece.content.replaceAll("><p>", "><p> ");
-                    context = context.replace(/(<([^>]+)>)/ig, ''); // https://www.geeksforgeeks.org/how-to-strip-out-html-tags-from-a-string-using-javascript/#
+                    context = stripHTML(context);
                     let startIndex = context.indexOf(searchValue) - additionalCharacters;
                     let endIndex = startIndex + searchValue.length + additionalCharacters * 2;
                     context = context.substring(startIndex, endIndex);
@@ -147,7 +152,7 @@ if (document.getElementById("search")) {
                 }
             });
             pieces.forEach(piece => {
-                if (piece.content.includes(searchValue) && !addedPieces.includes(newResult(piece, "title")) && !addedPieces.includes(newResult(piece, "author")) && !addedPieces.includes(newResult(piece, "genre")) && !addedPieces.includes(newResult(piece, "tags"))) {
+                if (stripHTML(piece.content).includes(searchValue) && !addedPieces.includes(newResult(piece, "title")) && !addedPieces.includes(newResult(piece, "author")) && !addedPieces.includes(newResult(piece, "genre")) && !addedPieces.includes(newResult(piece, "tags"))) {
                     addedPieces.push(newResult(piece, "content"));
                 }
             });
