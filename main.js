@@ -99,26 +99,47 @@ pieces.forEach(piece => {
 
 // search
 if (document.getElementById("search")) {
-    // creates a new search result
-    const newResult = (piece, attribute) => {
-        const result = document.createElement("li");
-        result.className = "result";
-        result.innerHTML = `<a href="${piece.url}">${piece.title} by ${piece.author}</a>`;
-        if (attribute === "title") {
-
-        }
-        return result;
-    };
-
     // searches pieces for matching search value
     const search = () => {
         const searchValue = document.getElementById("search").value;
         if (searchValue) {
             document.getElementById("results").innerHTML = "";
             const results = document.getElementById("results");
+
+            // creates a new search result
+            const newResult = (piece, attribute) => {
+                const result = document.createElement("li");
+                result.className = "result";
+                result.innerHTML = `<a href="${piece.url}">${piece.title} by ${piece.author}</a>`;
+                if (attribute === "content") {
+                    const additionalCharacters = 30;
+                    let context = piece.content.replaceAll("><p>", "><p> ");
+                    context = context.replace(/(<([^>]+)>)/ig, ''); // https://www.geeksforgeeks.org/how-to-strip-out-html-tags-from-a-string-using-javascript/#
+                    let startIndex = context.indexOf(searchValue) - additionalCharacters;
+                    let endIndex = startIndex + searchValue.length + additionalCharacters * 2;
+                    context = context.substring(startIndex, endIndex);
+                    if (context.includes(" ") && context.includes(context.substring(context.indexOf(" " + 1)))) context = context.substring(context.indexOf(" ") + 1, context.lastIndexOf(" "));
+                    result.innerHTML += `: "...${context}..."`;
+                }
+                return result;
+            };
+
+            // adds results
             pieces.forEach(piece => {
-                if (piece.title.includes(searchValue)) { 
+                if (piece.title.includes(searchValue)) {
                     results.appendChild(newResult(piece, "title"));
+                }
+                else if (piece.author.includes(searchValue)) {
+                    results.appendChild(newResult(piece, "author"));
+                }
+                else if (piece.genre.includes(searchValue)) {
+                    results.appendChild(newResult(piece, "genre"));
+                }
+                else if (piece.tags.includes(searchValue)) {
+                    results.appendChild(newResult(piece, "tags"));
+                }
+                else if (piece.content.includes(searchValue)) {
+                    results.appendChild(newResult(piece, "content"));
                 }
             });
 
