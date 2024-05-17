@@ -174,7 +174,7 @@ if (document.getElementById("search")) {
 
             // no results
             if (!document.getElementById("results").innerHTML) {
-                document.getElementById("results").innerHTML = "<li class=\"result\">No Results</li>";
+                document.getElementById("results").innerHTML = "<li class=\"result\">You done fucked up. Try again.</li>";
             }
 
             // clear search bar
