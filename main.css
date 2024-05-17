@@ -97,6 +97,67 @@ nav ul li {
     display: block;
     position: relative;
     z-index: 1;
+
+    /* https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load */
+    -webkit-animation: slideDown .4s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: slideDown .4s; /* Firefox < 16 */
+        -ms-animation: slideDown .4s; /* Internet Explorer */
+         -o-animation: slideDown .4s; /* Opera < 12.1 */
+            animation: slideDown .4s;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        top: -1em;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}   
+/* Firefox < 16 */
+@-moz-keyframes slideDown {
+    from {
+        opacity: 0;
+        top: -1em;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}
+/* Safari, Chrome, and Opera > 12.1 */
+@-webkit-keyframes slideDown {
+    from {
+        opacity: 0;
+        top: -1em;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}
+/* Internet Explorer */
+@-ms-keyframes slideDown {
+    from {
+        opacity: 0;
+        top: -1em;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}
+/* Opera < 12.1 */
+@-o-keyframes slideDown {
+    from {
+        opacity: 0;
+        top: -1em;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
 }
 
 main {
@@ -236,7 +297,7 @@ main {
         top: 5vh;
     }
 }
-/* Safari, Chrome and Opera > 12.1 */
+/* Safari, Chrome, and Opera > 12.1 */
 @-webkit-keyframes fadein {
     from {
         opacity: 0;
@@ -409,6 +470,7 @@ details p {
         display: flex;
         flex-flow: column nowrap;
         position: absolute;
+        margin: calc(var(--headerFontSize) / 4);
     }
     .bar1, .bar2, .bar3 {
         width: 35px;
@@ -426,6 +488,14 @@ details p {
     /* Rotate last bar */
     .menuIcon.change .bar3 {
         transform: translate(0, -11px) rotate(45deg);
+    }
+    nav ul {
+        /* https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load */
+        -webkit-animation: slideDown .4s; /* Safari, Chrome and Opera > 12.1 */
+           -moz-animation: slideDown .4s; /* Firefox < 16 */
+            -ms-animation: slideDown .4s; /* Internet Explorer */
+             -o-animation: slideDown .4s; /* Opera < 12.1 */
+                animation: slideDown .4s;
     }
     
     nav ul {
