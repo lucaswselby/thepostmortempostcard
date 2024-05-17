@@ -6,6 +6,7 @@
     --shadowColor: #333143;
     --headerBackground: #0e213a;
     --headerFontColor: white;
+    --headerFontSize: 5em;
     --navBackground: #364254;
     --bodyFontColor: #0d0107;
     --primaryBackground: #c1b4b4;
@@ -38,11 +39,11 @@ header h1 {
     margin: 0;
     background-color: var(--headerBackground);
     color: var(--headerFontColor);
-    font-size: 5em;
+    font-size: var(--headerFontSize);
 }
 
 nav ul {
-    --navs: 6;
+    --navs: 5;
     list-style-type: none;
     display: grid;
     grid-template-columns: repeat(var(--navs), calc(100% / var(--navs)));
@@ -69,6 +70,33 @@ nav ul li {
 }
 .dropdownOuter:hover .dropdownInner  {
     display: block;
+}
+
+#searchIcon {
+    display: block;
+    text-align: end;
+    position: absolute;
+    right: 0;
+}
+#searchIcon img {
+    height: calc(var(--headerFontSize) / 2);
+    padding: calc(var(--headerFontSize) / 4);
+    cursor: pointer;
+} 
+#searchIcon ul, #searchIcon #searchBar {
+    display: none;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+#searchIcon ul {
+    text-align: left;
+    background-color: var(--navBackground);
+}
+#searchIcon.change ul, #searchIcon.change #searchBar {
+    display: block;
+    position: relative;
+    z-index: 1;
 }
 
 main {
@@ -359,6 +387,11 @@ details p {
 }
             
 @media only screen and (max-width: 600px) {
+    :root {
+        --menuBarHeight: 5px;
+        --menuBarGap: 3px;
+    }
+
     header h1 {
         font-size: 3em;
         box-shadow: 0 .3em .15em var(--shadowColor);
@@ -379,10 +412,10 @@ details p {
     }
     .bar1, .bar2, .bar3 {
         width: 35px;
-        height: 5px;
+        height: var(--menuBarHeight);
         transition: 0.4s;
         background-color: var(--headerFontColor);
-        margin: 3px 0;
+        margin: var(--menuBarGap) 0;
     }  
     /* Rotate first bar */
     .menuIcon.change .bar1 {
@@ -394,6 +427,11 @@ details p {
     .menuIcon.change .bar3 {
         transform: translate(0, -11px) rotate(45deg);
     }
+
+    #searchIcon img {
+        height: calc(var(--menuBarHeight) * 3 + var(--menuBarGap) * 2);
+        padding: var(--menuBarGap);
+    } 
     
     nav ul {
         display: none;

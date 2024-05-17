@@ -4,12 +4,27 @@ function myFunction(x) {
     document.getElementsByTagName("NAV")[0].classList.toggle("change");
 }
 
+const searchIcon = () => {
+    document.getElementById("searchIcon").classList.toggle("change");
+    document.getElementById("results").innerHTML = "";
+    document.getElementById("search").value = "";
+};
+
 // add header and footer to each page
 document.getElementsByTagName("HEADER")[0].innerHTML = `<!-- https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
 <div class="menuIcon" onclick="myFunction(this)">
     <div class="bar1"></div>
     <div class="bar2"></div>
     <div class="bar3"></div>
+</div>
+
+<div id="searchIcon">
+    <img src="./searchIcon.png" alt="search icon" class="darkMode" id="searchIconImg" onclick="searchIcon()">
+    <div id="searchBar">
+        <input type="text" id="search" name="search">
+        <input type="submit" id="searchButton" value="Search">
+    </div>
+    <ul id="results"></ul>
 </div>
 
 <h1>the header</h1>
@@ -25,7 +40,6 @@ document.getElementsByTagName("HEADER")[0].innerHTML = `<!-- https://www.w3schoo
         <li><a href="./submissions.html">SUBMISSIONS</a></li>
         <li><a href="./team.html">MEET THE TEAM</a></li>
         <li><a href="./faqs.html">FAQs</a></li>
-        <li><a href="./search.html">SEARCH</a></li>
     </ul>
 </nav>`;
 /*document.getElementsByTagName("BODY")[0].innerHTML += `<footer>
