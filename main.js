@@ -117,13 +117,14 @@ if (document.getElementById("search")) {
                 result.className = "result";
                 result.innerHTML = `<a href="${piece.url}">${piece.title} by ${piece.author}</a>`;
                 if (attribute === "content") {
-                    const additionalCharacters = 30;
-                    let context = piece.content.replaceAll("><p>", "><p> ");
-                    context = stripHTML(context);
+                    const additionalCharacters = 30; // added to search value for context on either side
+                    let context = piece.content.replaceAll("><p>", "><p> "); // when paragraphs are removed, add a space to separate words
+                    context = stripHTML(context); // remove tags
                     let startIndex = context.indexOf(searchValue) - additionalCharacters;
                     let endIndex = startIndex + searchValue.length + additionalCharacters * 2;
                     context = context.substring(startIndex, endIndex);
-                    if (context.includes(" ") && context.includes(context.substring(context.indexOf(" " + 1)))) context = context.substring(context.indexOf(" ") + 1, context.lastIndexOf(" "));
+                    if (context.includes(" ") && context.includes(context.substring(context.indexOf(" " + 1)))) context = context.substring(context.indexOf(" ") + 1, context.lastIndexOf(" ")); // removes incomplete words
+                    context = context.replace(searchValue, `<span style="background-color: var(--secondaryBackground)">${searchValue}</span>`);
                     result.innerHTML += `: "...${context}..."`;
                 }
                 return result;
