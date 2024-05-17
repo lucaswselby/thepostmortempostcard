@@ -129,6 +129,7 @@ if (document.getElementById("search")) {
             const newResult = (piece, attribute) => {
                 const result = document.createElement("li");
                 result.className = "result";
+                result.id = piece.id;
                 result.innerHTML = `<a href="${piece.url}">${piece.title} by ${piece.author}</a>`;
                 if (attribute === "content") {
                     const additionalCharacters = 30; // added to search value for context on either side
@@ -145,34 +146,30 @@ if (document.getElementById("search")) {
             };
 
             // adds results
-            let addedPieces = [];
             pieces.forEach(piece => {
-                if (piece.title.includes(searchValue)) {
-                    addedPieces.push(newResult(piece, "title"));
+                if (piece.title.includes(searchValue) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
+                    results.appendChild(newResult(piece, "title"));
                 }
             });
             pieces.forEach(piece => {
-                if (piece.author.includes(searchValue) && !addedPieces.includes(newResult(piece, "title"))) {
-                    addedPieces.push(newResult(piece, "author"));
+                if (piece.author.includes(searchValue) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
+                    results.appendChild(newResult(piece, "author"));
                 }
             });
             pieces.forEach(piece => {
-                if (piece.genre.includes(searchValue) && !addedPieces.includes(newResult(piece, "title")) && !addedPieces.includes(newResult(piece, "author"))) {
-                    addedPieces.push(newResult(piece, "genre"));
+                if (piece.genre.includes(searchValue) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
+                    results.appendChild(newResult(piece, "genre"));
                 }
             });
             pieces.forEach(piece => {
-                if (piece.tags.includes(searchValue) && !addedPieces.includes(newResult(piece, "title")) && !addedPieces.includes(newResult(piece, "author")) && !addedPieces.includes(newResult(piece, "genre"))) {
-                    addedPieces.push(newResult(piece, "tags"));
+                if (piece.tags.includes(searchValue) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
+                    results.appendChild(newResult(piece, "tags"));
                 }
             });
             pieces.forEach(piece => {
-                if (stripHTML(piece.content).includes(searchValue) && !addedPieces.includes(newResult(piece, "title")) && !addedPieces.includes(newResult(piece, "author")) && !addedPieces.includes(newResult(piece, "genre")) && !addedPieces.includes(newResult(piece, "tags"))) {
-                    addedPieces.push(newResult(piece, "content"));
+                if (stripHTML(piece.content).includes(searchValue) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
+                    results.appendChild(newResult(piece, "content"));
                 }
-            });
-            addedPieces.forEach(addedResult => {
-                results.appendChild(addedResult);
             });
 
             // no results

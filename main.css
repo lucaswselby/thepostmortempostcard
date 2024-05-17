@@ -390,10 +390,10 @@ details p {
     :root {
         --menuBarHeight: 5px;
         --menuBarGap: 3px;
+        --headerFontSize: 3em;
     }
 
     header h1 {
-        font-size: 3em;
         box-shadow: 0 .3em .15em var(--shadowColor);
     }
     nav {
@@ -427,11 +427,6 @@ details p {
     .menuIcon.change .bar3 {
         transform: translate(0, -11px) rotate(45deg);
     }
-
-    #searchIcon img {
-        height: calc(var(--menuBarHeight) * 3 + var(--menuBarGap) * 2);
-        padding: var(--menuBarGap);
-    } 
     
     nav ul {
         display: none;
