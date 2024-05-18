@@ -135,11 +135,13 @@ if (document.getElementById("search")) {
                     const additionalCharacters = 30; // added to search value for context on either side
                     let context = piece.content.replaceAll("><p>", "><p> "); // when paragraphs are removed, add a space to separate words
                     context = stripHTML(context); // remove tags
-                    let startIndex = context.indexOf(searchValue) - additionalCharacters;
+                    let startIndex = context.toLowerCase().indexOf(searchValue.toLowerCase()) - additionalCharacters;
                     let endIndex = startIndex + searchValue.length + additionalCharacters * 2;
                     context = context.substring(startIndex, endIndex);
                     if (context.includes(" ") && context.includes(context.substring(context.indexOf(" " + 1)))) context = context.substring(context.indexOf(" ") + 1, context.lastIndexOf(" ")); // removes incomplete words
-                    context = context.replace(searchValue, `<span style="background-color: var(--secondaryBackground)">${searchValue}</span>`);
+                    startIndex = context.toLowerCase().indexOf(searchValue.toLowerCase());
+                    endIndex = startIndex + searchValue.length;
+                    context = `${context.slice(0, startIndex)}<span style="background-color: var(--secondaryBackground)">${context.slice(startIndex, endIndex)}</span>${context.slice(endIndex, endIndex + additionalCharacters)}`; // highlight searched term
                     result.innerHTML += `: "...${context}..."`;
                 }
                 return result;
@@ -147,27 +149,27 @@ if (document.getElementById("search")) {
 
             // adds results
             pieces.forEach(piece => {
-                if (piece.title.includes(searchValue) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
+                if (piece.title.toLowerCase().includes(searchValue.toLowerCase()) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
                     results.appendChild(newResult(piece, "title"));
                 }
             });
             pieces.forEach(piece => {
-                if (piece.author.includes(searchValue) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
+                if (piece.author.toLowerCase().includes(searchValue.toLowerCase()) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
                     results.appendChild(newResult(piece, "author"));
                 }
             });
             pieces.forEach(piece => {
-                if (piece.genre.includes(searchValue) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
+                if (piece.genre.toLowerCase().includes(searchValue.toLowerCase()) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
                     results.appendChild(newResult(piece, "genre"));
                 }
             });
             pieces.forEach(piece => {
-                if (piece.tags.includes(searchValue) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
+                if (piece.tags.map(tag => tag.toLowerCase()).includes(searchValue.toLowerCase()) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
                     results.appendChild(newResult(piece, "tags"));
                 }
             });
             pieces.forEach(piece => {
-                if (stripHTML(piece.content).includes(searchValue) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
+                if (stripHTML(piece.content.toLowerCase()).includes(searchValue.toLowerCase()) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
                     results.appendChild(newResult(piece, "content"));
                 }
             });
