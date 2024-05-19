@@ -47,8 +47,17 @@ document.getElementsByTagName("HEADER")[0].innerHTML = `<!-- https://www.w3schoo
 </footer>`;*/
 
 // sharing capabilities for pieces
-if (document.getElementById("shareIcons")) document.getElementById("shareIcons").innerHTML = `<a class="share" onclick="Share.facebook('${document.URL}','${document.getElementsByTagName("H2")[0].innerHTML} by ${document.getElementsByTagName("H3")[0].innerHTML}','IMG_PATH','DESC')"><img src="./facebook_icon.ico" alt="Share on Facebook"></a>
-<a class="share" onclick="Share.twitter('${document.URL}','${document.getElementsByTagName("H2")[0].innerHTML} by ${document.getElementsByTagName("H3")[0].innerHTML}')"><img src="x_icon.svg" alt="Share on Twitter" class="darkMode"></a>`;
+if (document.getElementById("shareIcons")) document.getElementById("shareIcons").innerHTML = `<a class="share" onclick="copyLink()"><img src="./shareIcon.png" alt="Copy to clipboard" class="darkMode"></a>
+<a class="share" onclick="Share.facebook('${document.URL}','${document.getElementsByTagName("H2")[0].innerHTML} by ${document.getElementsByTagName("H3")[0].innerHTML}','IMG_PATH','DESC')"><img src="./facebook_icon.ico" alt="Share on Facebook"></a>
+<a class="share" onclick="Share.twitter('${document.URL}','${document.getElementsByTagName("H2")[0].innerHTML} by ${document.getElementsByTagName("H3")[0].innerHTML}')"><img src="./x_icon.svg" alt="Share on Twitter" class="darkMode"></a>`;
+// https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
+function copyLink() {
+     // Copy the title, author, and url
+    navigator.clipboard.writeText(`${document.getElementsByTagName("H2")[0].innerHTML} by ${document.getElementsByTagName("H3")[0].innerHTML} ${document.URL}`);
+  
+    // Alert the copied text
+    alert("Copied to clipboard");
+}  
 // https://www.webdesign.org/html-and-css/tutorials/how-to-create-a-share-button-for-your-site.22180.html
 Share = {
     facebook: function(purl, ptitle, pimg, text) {
