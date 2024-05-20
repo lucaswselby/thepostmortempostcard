@@ -86,17 +86,19 @@
         document.getElementsByTagName("BODY")[0].onresize = resizeScreen;
 
         // resizes header on scroll
-        /* https://stackoverflow.com/questions/15195209/how-to-get-font-size-in-html */
-        const headerFontSize = parseFloat(window.getComputedStyle(document.getElementsByTagName("H1")[0], null).getPropertyValue('font-size'));
-        /* https://stackoverflow.com/questions/64624094/how-can-i-make-text-in-header-smaller-when-user-scroll-down */
+        // https://www.w3schools.com/Css/css3_variables_javascript.asp
+        const root = document.querySelector(':root');
+        const headerFontSize = parseFloat(getComputedStyle(root).getPropertyValue('--headerFontSize'));
+        // https://stackoverflow.com/questions/64624094/how-can-i-make-text-in-header-smaller-when-user-scroll-down
         document.getElementById("feed").onscroll = () => {
             const scrollTop = (document.getElementById("feed").scrollTop) - (document.getElementById("feed").clientTop || 0);
-            let size = headerFontSize - ((scrollTop / 10) || 0);
-            const minSize = 30;
-            if (size <= minSize) {
-                size = minSize;
+            let newHeaderFontSize = headerFontSize - ((scrollTop / 20) || 0);
+            const minSize = 4;
+            if (newHeaderFontSize <= minSize) {
+                newHeaderFontSize = minSize;
             }
-            document.getElementsByTagName("H1")[0].style.fontSize = `${size}px`;
+
+            root.style.setProperty('--headerFontSize', `${newHeaderFontSize}vw`);
             resizeScreen();
         };
     </script>

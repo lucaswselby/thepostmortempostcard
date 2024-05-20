@@ -6,12 +6,13 @@
     --shadowColor: #333143;
     --headerBackground: #0e213a;
     --headerFontColor: white;
-    --headerFontSize: 5em;
+    --headerFontSize: 6vw;
     --navBackground: #364254;
     --bodyFontColor: #0d0107;
     --primaryBackground: #c1b4b4;
     --secondaryBackground: #d3caca;
     --tertiaryBackground: #c7bbbb;
+    --headerIconPadding: calc(var(--headerFontSize) / 4);
 }
 
 body {
@@ -80,7 +81,7 @@ nav ul li {
 }
 #searchIcon img {
     height: calc(var(--headerFontSize) / 2);
-    padding: calc(var(--headerFontSize) / 4);
+    padding: var(--headerIconPadding);
     cursor: pointer;
 } 
 #searchIcon ul, #searchIcon #searchBar {
@@ -448,12 +449,6 @@ details p {
 }
             
 @media only screen and (max-width: 600px) {
-    :root {
-        --menuBarHeight: 5px;
-        --menuBarGap: 3px;
-        --headerFontSize: 3em;
-    }
-
     header h1 {
         box-shadow: 0 .3em .15em var(--shadowColor);
     }
@@ -466,28 +461,29 @@ details p {
 
     /* https://www.w3schools.com/howto/howto_css_menu_icon.asp */
     .menuIcon {
+        --barHeight: calc(var(--headerFontSize) / 7);
         cursor: pointer;
-        display: flex;
-        flex-flow: column nowrap;
+        display: inline-block;
         position: absolute;
-        margin: calc(var(--headerFontSize) / 4);
+        left: 0;
+        padding: 0 var(--headerIconPadding);
     }
     .bar1, .bar2, .bar3 {
-        width: 35px;
-        height: var(--menuBarHeight);
-        transition: 0.4s;
+        width: calc(var(--barHeight) * 5);
+        height: var(--barHeight);
+        transition: transform 0.4s, opacity 0.4s;
         background-color: var(--headerFontColor);
-        margin: var(--menuBarGap) 0;
+        margin: var(--barHeight) 0;
     }  
     /* Rotate first bar */
     .menuIcon.change .bar1 {
-        transform: translate(0, 11px) rotate(-45deg);
+        transform: translate(0, calc(var(--barHeight) * 2)) rotate(-45deg);
     }  
     /* Fade out the second bar */
     .menuIcon.change .bar2 {opacity: 0;}  
     /* Rotate last bar */
     .menuIcon.change .bar3 {
-        transform: translate(0, -11px) rotate(45deg);
+        transform: translate(0, calc(var(--barHeight) * -2)) rotate(45deg);
     }
     nav ul {
         /* https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load */
