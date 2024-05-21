@@ -19,7 +19,7 @@ document.getElementsByTagName("HEADER")[0].innerHTML = `<!-- https://www.w3schoo
 </div>
 
 <div id="searchIcon">
-    <img src="./searchIcon.png" alt="search icon" class="darkMode" id="searchIconImg" onclick="searchIcon()">
+    <img src="./searchIcon.png" alt="search icon" id="searchIconImg" onclick="searchIcon()">
     <div id="searchBar">
         <input type="text" id="search" name="search">
         <input type="submit" id="searchButton" value="Search">
