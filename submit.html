@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Zine Wireframe: Submissions</title>
+        <link rel="stylesheet" href="./main.css">
+        <meta charset="UTF-8">
+        <meta name="keywords" content="zine, publish, writing, art, fiction, poetry, photography">
+        <meta name="description" content="This is just a wireframe for a potential zine. Don't get too excited.">
+        <meta name="author" content="Lucas Selby">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Favicon -->
+        <!-- <link rel="icon" href="./favicon.png" type="image/x-icon"> -->
+    </head>
+
+    <body>
+        <header></header>
+
+        <main>
+            <form id="submissionForm"action="https://formspree.io/f/myyrlegk" method="POST">
+                <div>SUBMIT TO ME!!</div>
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div>
+                    <label for="email">Email*:</label>
+                    <input type="email" name="email" id="email" placeholder="name@example.com" required>
+                </div>
+                <div>
+                    <label for="coverLetter">Cover Letter:</label>
+                    <textarea id="coverLetter" name="coverLetter"></textarea>
+                </div>
+                <div>
+                    <label for="authorPic">Author Picture:</label>
+                    <input type="file" id="authorPic" name="authorPic" accept="image/*">
+                </div>
+                <div>
+                    <label for="title">Title*:</label>
+                    <input type="text" name="title" id="title" required>
+                </div>
+                <div>
+                    <label for="genre">Genre*:</label>
+                    <select name="genre" id="genre" required>
+                        <option value="fiction">Fiction</option>
+                        <option value="nonfiction">Nonfiction</option>
+                        <option value="poetry">Poetry</option>
+                        <option value="art">Art</option>
+                        <option value="photography">Photography</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="file">Upload*:</label>
+                    <input type="file" name="file" id="file" accept="text/plain, image/*, .pdf, .doc, .docx" required>
+                </div>
+                <div>
+                    <label for="tags">Tags:</label>
+                    <input list="tagsList" name="tags" id="tags">
+                    <datalist id="tagsList">
+                        <option value="fantasy">fantasy</option>
+                        <option value="science fiction">science fiction</option>
+                        <option value="horror">horror</option>
+                    </datalist>
+                    <input type="button" id="addTag" value="Add">
+                    <ul id="addedTags"></ul>
+                </div>
+                <div>
+                    <label for="website">Website:</label>
+                    <input type="url" id="website" name="website">
+                </div>
+                <div>
+                    <label for="x">X:</label>
+                    <input type="text" name="x" id="x" placeholder="@handle">
+                </div>
+                <div>
+                    <label for="instagram">Instagram:</label>
+                    <input type="text" name="instagram" id="instagram" placeholder="@handle">
+                </div>
+                <div>
+                    <label for="tiktok">TiKToK:</label>
+                    <input type="text" name="tiktok" id="tiktok" placeholder="@handle">
+                </div>
+                <input type="submit" value="Submit">
+                <div>*required</div>
+                <div>Powered by Formspree</div>
+            </form>
+        </main>
+
+        <footer></footer>
+    </body>
+    
+    <script type="text/javascript" src="./main.js"></script>
+    <script type="text/javascript">
+        // adds new tag to list of tags
+        const addTag = () => {
+            const newTagValue = document.getElementById("tags").value;
+            if (newTagValue) {
+                const newTag = document.createElement("li");
+                newTag.setAttribute("id", newTagValue);
+                newTag.innerHTML = `X ${newTagValue}`;
+                newTag.onclick = () => {document.getElementById(newTagValue).remove();};
+                if (!document.getElementById(newTagValue)) {
+                    document.getElementById("addedTags").appendChild(newTag);
+                }
+                document.getElementById("tags").value = "";
+            }
+        };
+        document.getElementById("addTag").onclick = addTag;
+
+        // adds tag on enter
+        document.getElementById("tags").addEventListener("keypress", event => {
+            if (event.key === "Enter" && document.getElementById("tags").value) {
+                event.preventDefault();
+                addTag();
+            }
+        });
+    </script>
+</html>
