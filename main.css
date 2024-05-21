@@ -338,6 +338,13 @@ main {
     right: 5vh;
     cursor: pointer;
 }
+.button, input[type="file"]::-webkit-file-upload-button {
+    border-radius: .2em;
+    background-color: var(--navBackground);
+    padding: 1em;
+    color: var(--headerFontColor);
+    font-weight: bold;
+}
 
 .verticalAlign {
     height: 100%;
