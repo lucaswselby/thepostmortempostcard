@@ -346,6 +346,15 @@ main {
     color: var(--headerFontColor);
     font-weight: bold;
 }
+.submissionField {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    align-items: center;
+}
+.submissionField label {
+    width: fit-content;
+    padding-right: 1em;
+}
 
 .verticalAlign {
     height: 100%;

@@ -18,28 +18,28 @@
 
         <main>
             <form id="submissionForm"action="https://formspree.io/f/myyrlegk" method="POST">
-                <div>SUBMIT TO ME!!</div>
-                <div>
+                <h2>SUBMIT TO ME!!</h2>
+                <div class="submissionField">
                     <label for="name">Name:</label>
                     <input type="text" name="name" id="name">
                 </div>
-                <div>
+                <div class="submissionField">
                     <label for="email">Email*:</label>
                     <input type="email" name="email" id="email" placeholder="name@example.com" required>
                 </div>
-                <div>
+                <div class="submissionField">
                     <label for="coverLetter">Cover Letter:</label>
                     <textarea id="coverLetter" name="coverLetter"></textarea>
                 </div>
-                <div>
+                <div class="submissionField">
                     <label for="authorPic">Author Picture:</label>
                     <input type="file" id="authorPic" name="authorPic" accept="image/*">
                 </div>
-                <div>
+                <div class="submissionField">
                     <label for="title">Title*:</label>
                     <input type="text" name="title" id="title" required>
                 </div>
-                <div>
+                <div class="submissionField">
                     <label for="genre">Genre*:</label>
                     <select name="genre" id="genre" required>
                         <option value="fiction">Fiction</option>
@@ -49,34 +49,36 @@
                         <option value="photography">Photography</option>
                     </select>
                 </div>
-                <div>
+                <div class="submissionField">
                     <label for="file">Upload*:</label>
                     <input type="file" name="file" id="file" accept="text/plain, image/*, .pdf, .doc, .docx" required>
                 </div>
-                <div>
+                <div class="submissionField">
                     <label for="tags">Tags:</label>
-                    <input list="tagsList" name="tags" id="tags">
-                    <datalist id="tagsList">
-                        <option value="fantasy">fantasy</option>
-                        <option value="science fiction">science fiction</option>
-                        <option value="horror">horror</option>
-                    </datalist>
-                    <input type="button" id="addTag" value="Add" class="button">
-                    <ul id="addedTags"></ul>
+                    <div>
+                        <input list="tagsList" name="tags" id="tags">
+                        <datalist id="tagsList">
+                            <option value="fantasy">fantasy</option>
+                            <option value="science fiction">science fiction</option>
+                            <option value="horror">horror</option>
+                        </datalist>
+                        <input type="button" id="addTag" value="Add" class="button">
+                        <ul id="addedTags"></ul>
+                    </div>
                 </div>
-                <div>
+                <div class="submissionField">
                     <label for="website">Website:</label>
                     <input type="url" id="website" name="website">
                 </div>
-                <div>
+                <div class="submissionField">
                     <label for="x">X:</label>
                     <input type="text" name="x" id="x" placeholder="@handle">
                 </div>
-                <div>
+                <div class="submissionField">
                     <label for="instagram">Instagram:</label>
                     <input type="text" name="instagram" id="instagram" placeholder="@handle">
                 </div>
-                <div>
+                <div class="submissionField">
                     <label for="tiktok">TiKToK:</label>
                     <input type="text" name="tiktok" id="tiktok" placeholder="@handle">
                 </div>
@@ -114,5 +116,17 @@
                 addTag();
             }
         });
+
+        // grid styling
+        const labels = document.getElementsByTagName("LABEL");
+        let longest = labels[0].offsetWidth;
+        for (let i = 0; i < document.getElementsByTagName("LABEL").length; i++) {
+            if (labels[i].offsetWidth > longest) {
+                longest = labels[i].offsetWidth;
+            }
+        }
+        for (let i = 0; i < document.getElementsByClassName("submissionField").length; i++) {
+            document.getElementsByClassName("submissionField")[i].style.gridTemplateColumns = `${longest}px auto`;
+        }
     </script>
 </html>
