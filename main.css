@@ -13,6 +13,7 @@
     --secondaryBackground: #d3caca;
     --tertiaryBackground: #c7bbbb;
     --headerIconPadding: calc(var(--headerFontSize) / 4);
+    --requiredColor: red;
 }
 
 body {
@@ -422,6 +423,9 @@ main {
 #addedTags li:hover {
     background-color: lightgray;
 }
+.required {
+    color: var(--requiredColor);
+}
 
 .teamPic {
     width: 200px;
@@ -563,6 +567,7 @@ details p {
         --primaryBackground: #1d0d2c;
         --secondaryBackground: #60556b;
         --tertiaryBackground: #4a3d56;
+        --requiredColor: pink;
     }
     .darkMode {
         filter: invert(1);
