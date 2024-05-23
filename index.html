@@ -77,29 +77,4 @@
     </body>
 
     <script type="text/javascript" src="./main.js"></script>
-    <script type="text/javascript">
-        // resizes feed height for desktop and mobile
-        const resizeScreen = () => {
-            document.getElementById("feed").style.height = `calc(${window.innerHeight}px - ${document.getElementsByTagName("HEADER")[0].offsetHeight + (matchMedia("only screen and (max-width: 600px)").matches ? document.getElementById("homeRight").offsetHeight : 0) + (document.getElementsByTagName("FOOTER")[0] ? document.getElementsByTagName("FOOTER")[0].offsetHeight : 0)}px - 1px)`;
-        };
-        resizeScreen();
-        document.getElementsByTagName("BODY")[0].onresize = resizeScreen;
-
-        // resizes header on scroll
-        // https://www.w3schools.com/Css/css3_variables_javascript.asp
-        const root = document.querySelector(':root');
-        const headerFontSize = parseFloat(getComputedStyle(root).getPropertyValue('--headerFontSize'));
-        // https://stackoverflow.com/questions/64624094/how-can-i-make-text-in-header-smaller-when-user-scroll-down
-        document.getElementById("feed").onscroll = () => {
-            const scrollTop = (document.getElementById("feed").scrollTop) - (document.getElementById("feed").clientTop || 0);
-            let newHeaderFontSize = headerFontSize - ((scrollTop / 20) || 0);
-            const minSize = 5;
-            if (newHeaderFontSize <= minSize) {
-                newHeaderFontSize = minSize;
-            }
-
-            root.style.setProperty('--headerFontSize', `${newHeaderFontSize}vw`);
-            resizeScreen();
-        };
-    </script>
 </html>

@@ -10,50 +10,75 @@ const searchIconClick = () => {
     document.getElementById("search").value = "";
 };
 
-// add header and footer to each page
-document.getElementsByTagName("HEADER")[0].innerHTML = `<!-- https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
-<div id="menuIcon" onclick="menuIconClick(this)">
-    <div class="bar1"></div>
-    <div class="bar2"></div>
-    <div class="bar3"></div>
-</div>
+// 
+const mobile = () => {
+    return matchMedia("only screen and (max-width: 600px)").matches;
+}
 
-${matchMedia("only screen and (max-width: 600px)").matches ? `<div id="searchContainer">
-    <img src="./searchIcon.png" alt="search icon" onclick="searchIconClick()">
-    <div id="searchBar">
+// add header to each page
+const createHeader = () => {
+    document.getElementsByTagName("HEADER")[0].innerHTML = `<!-- https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
+    <div id="menuIcon" onclick="menuIconClick(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+
+    ${mobile() ? `<div id="searchContainer">
+        <img src="./searchIcon.png" alt="search icon" onclick="searchIconClick()">
+    </div>` : ""}
+
+    <h1>the header</h1>
+
+    <nav>
+        <ul>
+            <li><a href="./index.html">HOME</a></li>
+            <li class="dropdownOuter"><a href="./issues.html">ISSUES</a>
+                <ul class="dropdownInner">
+                    <li><a href="./issue1.html">Issue 1</a></li>
+                </ul>
+            </li>
+            <li><a href="./submissions.html">SUBMISSIONS</a></li>
+            <li><a href="./team.html">MEET THE TEAM</a></li>
+            <li><a href="./faqs.html">FAQs</a></li>
+            <li class="mobileIcon">
+                <div onclick="searchIconClick()">SEARCH</div>
+                ${!mobile() ? `<div id="searchContainer"></div>` : ""}
+            </li>
+        </ul>
+    </nav>`;
+    document.getElementById("searchContainer").innerHTML += `<div id="searchBar">
         <input type="text" id="search" name="search">
         <input type="submit" id="searchButton" value="Search">
     </div>
-    <ul id="results"></ul>
-</div>` : ""}
+    <ul id="results"></ul>`;
+};
+createHeader();
 
-<h1>the header</h1>
+// resizes feed height for desktop and mobile
+const resizeScreen = () => {
+    if (document.getElementById("feed")) document.getElementById("feed").style.height = `calc(${window.innerHeight}px - ${document.getElementsByTagName("HEADER")[0].offsetHeight + (mobile() ? document.getElementById("homeRight").offsetHeight : 0) + (document.getElementsByTagName("FOOTER")[0] ? document.getElementsByTagName("FOOTER")[0].offsetHeight : 0)}px - 1px)`;
+};
+resizeScreen();
 
-<nav>
-    <ul>
-        <li><a href="./index.html">HOME</a></li>
-        <li class="dropdownOuter"><a href="./issues.html">ISSUES</a>
-            <ul class="dropdownInner">
-                <li><a href="./issue1.html">Issue 1</a></li>
-            </ul>
-        </li>
-        <li><a href="./submissions.html">SUBMISSIONS</a></li>
-        <li><a href="./team.html">MEET THE TEAM</a></li>
-        <li><a href="./faqs.html">FAQs</a></li>
-        <li class="mobileIcon"><div onclick="searchIconClick()">SEARCH</div>
-            ${!matchMedia("only screen and (max-width: 600px)").matches ? `<div id="searchContainer">
-                <div id="searchBar">
-                    <input type="text" id="search" name="search">
-                    <input type="submit" id="searchButton" value="Search">
-                </div>
-                <ul id="results"></ul>
-            </div>` : ""}
-        </li>
-    </ul>
-</nav>`;
-/*document.getElementsByTagName("BODY")[0].innerHTML += `<footer>
-    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/lucaswselby/zine" target="_blank">Zine</a> &copy; 2024 by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/lucaswselby" target="_blank">Lucas Selby</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
-</footer>`;*/
+// resizes header on scroll
+// https://www.w3schools.com/Css/css3_variables_javascript.asp
+const root = document.querySelector(':root');
+const headerFontSize = parseFloat(getComputedStyle(root).getPropertyValue('--headerFontSize'));
+// https://stackoverflow.com/questions/64624094/how-can-i-make-text-in-header-smaller-when-user-scroll-down
+if (document.getElementById("feed")) {
+    document.getElementById("feed").onscroll = () => {
+        const scrollTop = (document.getElementById("feed").scrollTop) - (document.getElementById("feed").clientTop || 0);
+        let newHeaderFontSize = headerFontSize - ((scrollTop / 20) || 0);
+        const minSize = 5;
+        if (newHeaderFontSize <= minSize) {
+            newHeaderFontSize = minSize;
+        }
+
+        root.style.setProperty('--headerFontSize', `${newHeaderFontSize}vw`);
+        resizeScreen();
+    };
+}
 
 // sharing capabilities for pieces
 if (document.getElementById("shareIcons")) document.getElementById("shareIcons").innerHTML = `<a class="share" onclick="copyLink()"><img src="./shareIcon.png" alt="Copy to clipboard" class="darkMode"></a>
@@ -134,73 +159,76 @@ const stripHTML = html => {
     return html.replaceAll(/(<([^>]+)>)/ig, '');
 };
 
-// search
-if (document.getElementById("search")) {
-    // searches pieces for matching search value
-    const search = () => {
-        const searchValue = document.getElementById("search").value;
-        if (searchValue) {
-            document.getElementById("results").innerHTML = "";
-            const results = document.getElementById("results");
+// searches pieces for matching search value
+const search = () => {
+    const searchValue = document.getElementById("search").value;
+    if (searchValue) {
+        document.getElementById("results").innerHTML = "";
+        const results = document.getElementById("results");
 
-            // creates a new search result
-            const newResult = (piece, attribute) => {
-                const result = document.createElement("li");
-                result.className = "result";
-                result.id = piece.id;
-                result.innerHTML = `<a href="${piece.url}">${piece.title} by ${piece.author}</a>`;
-                if (attribute === "content") {
-                    const additionalCharacters = 30; // added to search value for context on either side
-                    let context = piece.content.replaceAll("><p>", "><p> "); // when paragraphs are removed, add a space to separate words
-                    context = stripHTML(context); // remove tags
-                    let startIndex = context.toLowerCase().indexOf(searchValue.toLowerCase()) - additionalCharacters;
-                    let endIndex = startIndex + searchValue.length + additionalCharacters * 2;
-                    context = context.substring(startIndex, endIndex);
-                    if (context.includes(" ") && context.includes(context.substring(context.indexOf(" " + 1)))) context = context.substring(context.indexOf(" ") + 1, context.lastIndexOf(" ")); // removes incomplete words
-                    startIndex = context.toLowerCase().indexOf(searchValue.toLowerCase());
-                    endIndex = startIndex + searchValue.length;
-                    context = `${context.slice(0, startIndex)}<span style="background-color: var(--secondaryBackground)">${context.slice(startIndex, endIndex)}</span>${context.slice(endIndex, endIndex + additionalCharacters)}`; // highlight searched term
-                    result.innerHTML += `: "...${context}..."`;
-                }
-                return result;
-            };
-
-            // adds results
-            pieces.forEach(piece => {
-                if (piece.title.toLowerCase().includes(searchValue.toLowerCase()) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
-                    results.appendChild(newResult(piece, "title"));
-                }
-            });
-            pieces.forEach(piece => {
-                if (piece.author.toLowerCase().includes(searchValue.toLowerCase()) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
-                    results.appendChild(newResult(piece, "author"));
-                }
-            });
-            pieces.forEach(piece => {
-                if (piece.genre.toLowerCase().includes(searchValue.toLowerCase()) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
-                    results.appendChild(newResult(piece, "genre"));
-                }
-            });
-            pieces.forEach(piece => {
-                if (piece.tags.map(tag => tag.toLowerCase()).includes(searchValue.toLowerCase()) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
-                    results.appendChild(newResult(piece, "tags"));
-                }
-            });
-            pieces.forEach(piece => {
-                if (stripHTML(piece.content.toLowerCase()).includes(searchValue.toLowerCase()) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
-                    results.appendChild(newResult(piece, "content"));
-                }
-            });
-
-            // no results
-            if (!document.getElementById("results").innerHTML) {
-                document.getElementById("results").innerHTML = "<li class=\"result\">You done fucked up. Try again.</li>";
+        // creates a new search result
+        const newResult = (piece, attribute) => {
+            const result = document.createElement("li");
+            result.className = "result";
+            result.id = piece.id;
+            result.innerHTML = `<a href="${piece.url}">${piece.title} by ${piece.author}</a>`;
+            if (attribute === "content") {
+                const additionalCharacters = 30; // added to search value for context on either side
+                let context = piece.content.replaceAll("><p>", "><p> "); // when paragraphs are removed, add a space to separate words
+                context = stripHTML(context); // remove tags
+                let startIndex = context.toLowerCase().indexOf(searchValue.toLowerCase()) - additionalCharacters;
+                let endIndex = startIndex + searchValue.length + additionalCharacters * 2;
+                context = context.substring(startIndex, endIndex);
+                if (context.includes(" ") && context.includes(context.substring(context.indexOf(" " + 1)))) context = context.substring(context.indexOf(" ") + 1, context.lastIndexOf(" ")); // removes incomplete words
+                startIndex = context.toLowerCase().indexOf(searchValue.toLowerCase());
+                endIndex = startIndex + searchValue.length;
+                context = `${context.slice(0, startIndex)}<span style="background-color: var(--secondaryBackground)">${context.slice(startIndex, endIndex)}</span>${context.slice(endIndex, endIndex + additionalCharacters)}`; // highlight searched term
+                result.innerHTML += `: "...${context}..."`;
             }
+            return result;
+        };
 
-            // clear search bar
-            document.getElementById("search").value = "";
+        // adds results
+        pieces.forEach(piece => {
+            if (piece.title.toLowerCase().includes(searchValue.toLowerCase()) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
+                results.appendChild(newResult(piece, "title"));
+            }
+        });
+        pieces.forEach(piece => {
+            if (piece.author.toLowerCase().includes(searchValue.toLowerCase()) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
+                results.appendChild(newResult(piece, "author"));
+            }
+        });
+        pieces.forEach(piece => {
+            if (piece.genre.toLowerCase().includes(searchValue.toLowerCase()) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
+                results.appendChild(newResult(piece, "genre"));
+            }
+        });
+        pieces.forEach(piece => {
+            if (piece.tags.map(tag => tag.toLowerCase()).includes(searchValue.toLowerCase()) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
+                results.appendChild(newResult(piece, "tags"));
+            }
+        });
+        pieces.forEach(piece => {
+            if (stripHTML(piece.content.toLowerCase()).includes(searchValue.toLowerCase()) && !document.getElementById("results").innerHTML.includes(`id="${piece.id}"`)) {
+                results.appendChild(newResult(piece, "content"));
+            }
+        });
+
+        // no results
+        if (!document.getElementById("results").innerHTML) {
+            document.getElementById("results").innerHTML = "<li class=\"result\">You done fucked up. Try again.</li>";
         }
-    };
+
+        // clear search bar
+        document.getElementById("search").value = "";
+    }
+};
+
+// resizing the window still loads all functions
+const loadFunctions = () => {
+    createHeader();
+    resizeScreen();
 
     // searches on submit or enter
     document.getElementById("searchButton").onclick = search;
@@ -210,4 +238,6 @@ if (document.getElementById("search")) {
             search();
         }
     });
-}
+};
+loadFunctions();
+window.onresize = loadFunctions;
