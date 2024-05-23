@@ -164,7 +164,6 @@ nav ul li {
 
 main {
     margin: 0 var(--mainMargin);
-    padding-top: 1em;
 }
 .grid8020 {
     display: grid;
