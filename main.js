@@ -1,31 +1,31 @@
 // https://www.w3schools.com/howto/howto_css_menu_icon.asp
-function myFunction(x) {
-    x.classList.toggle("change");
+const menuIconClick = menuIcon => {
+    menuIcon.classList.toggle("change");
     document.getElementsByTagName("NAV")[0].classList.toggle("change");
 }
 
-const searchIcon = () => {
-    document.getElementById("searchIcon").classList.toggle("change");
+const searchIconClick = () => {
+    document.getElementById("searchContainer").classList.toggle("change");
     document.getElementById("results").innerHTML = "";
     document.getElementById("search").value = "";
 };
 
 // add header and footer to each page
 document.getElementsByTagName("HEADER")[0].innerHTML = `<!-- https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
-<div class="menuIcon" onclick="myFunction(this)">
+<div id="menuIcon" onclick="menuIconClick(this)">
     <div class="bar1"></div>
     <div class="bar2"></div>
     <div class="bar3"></div>
 </div>
 
-<div id="searchIcon">
-    <img src="./searchIcon.png" alt="search icon" id="searchIconImg" onclick="searchIcon()">
+${matchMedia("only screen and (max-width: 600px)").matches ? `<div id="searchContainer">
+    <img src="./searchIcon.png" alt="search icon" onclick="searchIconClick()">
     <div id="searchBar">
         <input type="text" id="search" name="search">
         <input type="submit" id="searchButton" value="Search">
     </div>
     <ul id="results"></ul>
-</div>
+</div>` : ""}
 
 <h1>the header</h1>
 
@@ -40,6 +40,15 @@ document.getElementsByTagName("HEADER")[0].innerHTML = `<!-- https://www.w3schoo
         <li><a href="./submissions.html">SUBMISSIONS</a></li>
         <li><a href="./team.html">MEET THE TEAM</a></li>
         <li><a href="./faqs.html">FAQs</a></li>
+        <li class="mobileIcon"><div onclick="searchIconClick()">SEARCH</div>
+            ${!matchMedia("only screen and (max-width: 600px)").matches ? `<div id="searchContainer">
+                <div id="searchBar">
+                    <input type="text" id="search" name="search">
+                    <input type="submit" id="searchButton" value="Search">
+                </div>
+                <ul id="results"></ul>
+            </div>` : ""}
+        </li>
     </ul>
 </nav>`;
 /*document.getElementsByTagName("BODY")[0].innerHTML += `<footer>

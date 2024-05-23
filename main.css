@@ -45,7 +45,7 @@ header h1 {
 }
 
 nav ul {
-    --navs: 5;
+    --navs: 6;
     list-style-type: none;
     display: grid;
     grid-template-columns: repeat(var(--navs), calc(100% / var(--navs)));
@@ -73,29 +73,33 @@ nav ul li {
 .dropdownOuter:hover .dropdownInner  {
     display: block;
 }
+.mobileIcon {
+    cursor: pointer;
+}
 
-#searchIcon {
+#searchContainer {
     display: block;
     text-align: end;
     position: absolute;
     right: 0;
 }
-#searchIcon img {
+#searchContainer img {
+    display: none;
     height: calc(var(--headerFontSize) / 2);
     padding: var(--headerIconPadding);
     cursor: pointer;
 } 
-#searchIcon ul, #searchIcon #searchBar {
+#searchContainer ul, #searchContainer #searchBar {
     display: none;
     list-style-type: none;
     padding-left: 0;
     margin: 0;
 }
-#searchIcon ul {
+#searchContainer ul {
     text-align: left;
     background-color: var(--navBackground);
 }
-#searchIcon.change ul, #searchIcon.change #searchBar {
+#searchContainer.change ul, #searchContainer.change #searchBar {
     display: block;
     position: relative;
     z-index: 1;
@@ -255,7 +259,7 @@ main {
     margin-top: 1em;
 }
 
-.menuIcon {
+#menuIcon {
     display: none;
 }
 
@@ -484,7 +488,7 @@ details p {
     }
 
     /* https://www.w3schools.com/howto/howto_css_menu_icon.asp */
-    .menuIcon {
+    #menuIcon {
         --barHeight: calc(var(--headerFontSize) / 7);
         cursor: pointer;
         display: inline-block;
@@ -500,26 +504,24 @@ details p {
         margin: var(--barHeight) 0;
     }  
     /* Rotate first bar */
-    .menuIcon.change .bar1 {
+    #menuIcon.change .bar1 {
         transform: translate(0, calc(var(--barHeight) * 2)) rotate(-45deg);
     }  
     /* Fade out the second bar */
-    .menuIcon.change .bar2 {opacity: 0;}  
+    #menuIcon.change .bar2 {opacity: 0;}  
     /* Rotate last bar */
-    .menuIcon.change .bar3 {
+    #menuIcon.change .bar3 {
         transform: translate(0, calc(var(--barHeight) * -2)) rotate(45deg);
     }
     nav ul {
+        --navs: calc(var(--navs) - 1);
+        display: none;
         /* https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load */
         -webkit-animation: slideDown .4s; /* Safari, Chrome and Opera > 12.1 */
            -moz-animation: slideDown .4s; /* Firefox < 16 */
             -ms-animation: slideDown .4s; /* Internet Explorer */
              -o-animation: slideDown .4s; /* Opera < 12.1 */
                 animation: slideDown .4s;
-    }
-    
-    nav ul {
-        display: none;
     }
     nav.change ul {
         display: block;
@@ -528,6 +530,13 @@ details p {
     }
     .change .dropdownInner, .dropdownOuter:hover .dropdownInner  {
         display: none;
+    }
+    .mobileIcon {
+        display: none;
+    }
+
+    #searchContainer img {
+        display: inline-block;
     }
 
     .grid8020 {
