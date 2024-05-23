@@ -344,6 +344,10 @@ main {
     padding: 1em;
     color: var(--headerFontColor);
     font-weight: bold;
+    cursor: pointer;
+}
+.button:hover, input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: var(--tertiaryBackground);
 }
 .submissionField {
     display: grid;
