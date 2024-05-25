@@ -181,6 +181,14 @@ main {
     height: 100vh;
     overflow-y: auto;
     scroll-behavior: smooth;
+    mask-image: linear-gradient(180deg, var(--primaryBackground) 90%, transparent);
+    scrollbar-width: none;
+}
+#feed:hover {
+    scrollbar-width: initial;
+}
+#feed1 {
+    margin-bottom: 10%;
 }
 #backToTop {
     position: absolute;

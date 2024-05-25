@@ -10,10 +10,13 @@ const searchIconClick = () => {
     document.getElementById("search").value = "";
 };
 
-// 
 const mobile = () => {
     return matchMedia("only screen and (max-width: 600px)").matches;
 }
+
+const feed = () => {
+    return document.getElementById("feed") ? document.getElementById("feed") : null;
+};
 
 // add header to each page
 const createHeader = () => {
@@ -57,7 +60,7 @@ createHeader();
 
 // resizes feed height for desktop and mobile
 const resizeScreen = () => {
-    if (document.getElementById("feed")) document.getElementById("feed").style.height = `calc(${window.innerHeight}px - ${document.getElementsByTagName("HEADER")[0].offsetHeight + (mobile() ? document.getElementById("homeRight").offsetHeight : 0) + (document.getElementsByTagName("FOOTER")[0] ? document.getElementsByTagName("FOOTER")[0].offsetHeight : 0)}px - 1px)`;
+    if (feed()) feed().style.height = `calc(${window.innerHeight}px - ${document.getElementsByTagName("HEADER")[0].offsetHeight + (mobile() ? document.getElementById("homeRight").offsetHeight : 0) + (document.getElementsByTagName("FOOTER")[0] ? document.getElementsByTagName("FOOTER")[0].offsetHeight : 0)}px - 1px)`;
 };
 resizeScreen();
 
@@ -66,9 +69,9 @@ resizeScreen();
 const root = document.querySelector(':root');
 const headerFontSize = parseFloat(getComputedStyle(root).getPropertyValue('--headerFontSize'));
 // https://stackoverflow.com/questions/64624094/how-can-i-make-text-in-header-smaller-when-user-scroll-down
-if (document.getElementById("feed")) {
-    document.getElementById("feed").onscroll = () => {
-        const scrollTop = (document.getElementById("feed").scrollTop) - (document.getElementById("feed").clientTop || 0);
+if (feed()) {
+    feed().onscroll = () => {
+        const scrollTop = (feed().scrollTop) - (feed().clientTop || 0);
         let newHeaderFontSize = headerFontSize - ((scrollTop / 20) || 0);
         const minSize = 5;
         if (newHeaderFontSize <= minSize) {
