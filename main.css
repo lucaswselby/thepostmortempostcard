@@ -583,6 +583,16 @@ details p {
     .featuredWorks {
         display: block;
     }
+
+    .teamMember {
+        grid-template-columns: 50% 50%;
+    }
+    .teamPic {
+        grid-row-end: 1;
+    }
+    .teamBio, .teamWorks {
+        grid-column: 1 / 3;
+    }
 }
 
 /* https://stackoverflow.com/questions/50840168/how-to-detect-if-the-os-is-in-dark-mode-in-browsers */
