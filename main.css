@@ -261,7 +261,7 @@ main {
     max-width: 100%;
 }
 
-#homeRight {
+#homeRight, .issueNav {
     padding: 1em;
     background-color: var(--tertiaryBackground);
     margin-top: 1em;
@@ -432,6 +432,22 @@ main {
     transform: translate(-50%, -50%);
     transition: transform 2s;
 }
+.issueNav {
+    list-style-type: none;
+}
+#backToTopIssue {
+    position: fixed;
+    bottom: 5px;
+    right: .5em;
+    background-color: var(--secondaryBackground);
+    border-radius: 10px;
+    padding: 5px;
+    margin-right: 1em;
+}
+#backToTopIssue:hover {
+    background-color: var(--shadowColor);
+    color: white !important;    
+}
 
 .piece img {
     max-width: 100%;
@@ -600,6 +616,9 @@ details p {
     }
     .featuredWorks {
         display: block;
+    }
+    #backToTopIssue {
+        background-color: var(--tertiaryBackground);
     }
 
     .teamMember {
