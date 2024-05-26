@@ -137,13 +137,13 @@
         // grid styling
         const labels = document.getElementsByTagName("LABEL");
         let longest = labels[0].offsetWidth;
-        for (let i = 0; i < document.getElementsByTagName("LABEL").length; i++) {
+        for (let i = 1; i < document.getElementsByTagName("LABEL").length; i++) {
             if (labels[i].offsetWidth > longest) {
                 longest = labels[i].offsetWidth;
             }
         }
         for (let i = 0; i < document.getElementsByClassName("submissionField").length; i++) {
-            document.getElementsByClassName("submissionField")[i].style.gridTemplateColumns = `${longest}px auto`;
+            document.getElementsByClassName("submissionField")[i].style.gridTemplateColumns = `calc(${longest}px + 1em) auto`;
         }
     </script>
 </html>

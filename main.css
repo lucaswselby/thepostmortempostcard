@@ -361,6 +361,10 @@ main {
 .button:hover, input[type="file"]::-webkit-file-upload-button:hover {
     background-color: var(--tertiaryBackground);
 }
+#submissionForm {
+    margin-left: 30%;
+    font-size: large;
+}
 .submissionField {
     display: grid;
     grid-template-columns: repeat(2, 50%);
@@ -368,7 +372,9 @@ main {
 }
 .submissionField label {
     width: fit-content;
-    padding-right: 1em;
+}
+.submissionField input, .submissionField textarea, .submissionField select {
+    max-width: 50%;
 }
 
 .verticalAlign {
@@ -583,6 +589,10 @@ details p {
         position: static;
         padding: 0;
         max-width: 100%;
+    }
+
+    #submissionForm {
+        margin-left: 0;
     }
 
     .issueNav {
