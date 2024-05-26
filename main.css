@@ -272,15 +272,17 @@ main {
 }
 
 #submissionPopUp {
+    --height: 50vh;
+    --width: 50vw;
     position: fixed;
     z-index: 1;
-    top: 5vh;
-    left: 5vw;
-    height: 90vh;
-    width: 90vw;
+    top: calc((100vh - var(--height)) / 2);
+    left: calc((100vw - var(--width)) / 2);
+    height: var(--height);
+    width: var(--width);
     align-content: center;
     text-align: center;
-    background-color: var(--secondaryBackground);
+    background-color: var(--tertiaryBackground);
     border-radius: 5vh;
 
     /* https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load */
@@ -293,55 +295,55 @@ main {
 @keyframes fadein {
     from {
         opacity: 0;
-        top: 10vh;
+        top: calc(100vh - var(--height));
     }
     to {
         opacity: 1;
-        top: 5vh;
+        top: calc((100vh - var(--height)) / 2);
     }
 }   
 /* Firefox < 16 */
 @-moz-keyframes fadein {
     from {
         opacity: 0;
-        top: 10vh;
+        top: calc((100vh - var(--height)));
     }
     to {
         opacity: 1;
-        top: 5vh;
+        top: calc((100vh - var(--height)) / 2);
     }
 }
 /* Safari, Chrome, and Opera > 12.1 */
 @-webkit-keyframes fadein {
     from {
         opacity: 0;
-        top: 10vh;
+        top: calc((100vh - var(--height)));
     }
     to {
         opacity: 1;
-        top: 5vh;
+        top: calc((100vh - var(--height)) / 2);
     }
 }
 /* Internet Explorer */
 @-ms-keyframes fadein {
     from {
         opacity: 0;
-        top: 10vh;
+        top: calc((100vh - var(--height)));
     }
     to {
         opacity: 1;
-        top: 5vh;
+        top: calc((100vh - var(--height)) / 2);
     }
 }
 /* Opera < 12.1 */
 @-o-keyframes fadein {
     from {
         opacity: 0;
-        top: 10vh;
+        top: calc((100vh - var(--height)));
     }
     to {
         opacity: 1;
-        top: 5vh;
+        top: calc((100vh - var(--height)) / 2);
     }
 }
 #exitIcon {
