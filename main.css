@@ -563,6 +563,9 @@ details p {
              -o-animation: slideDown .4s; /* Opera < 12.1 */
                 animation: slideDown .4s;
     }
+    nav ul li {
+        padding: .2em;
+    }
     nav.change ul {
         display: block;
         position: relative;
