@@ -272,18 +272,15 @@ main {
 }
 
 #submissionPopUp {
-    --height: 50vh;
-    --width: 50vw;
     position: fixed;
     z-index: 1;
-    top: calc((100vh - var(--height)) / 2);
-    left: calc((100vw - var(--width)) / 2);
-    height: var(--height);
-    width: var(--width);
+    bottom: 0;
+    left: 0;
+    width: 100vw;
     align-content: center;
     text-align: center;
     background-color: var(--tertiaryBackground);
-    border-radius: 5vh;
+    padding: 1em;
 
     /* https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load */
     -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
@@ -295,63 +292,66 @@ main {
 @keyframes fadein {
     from {
         opacity: 0;
-        top: calc(100vh - var(--height));
+        bottom: -100vh;
     }
     to {
         opacity: 1;
-        top: calc((100vh - var(--height)) / 2);
+        bottom: 0;
     }
 }   
 /* Firefox < 16 */
 @-moz-keyframes fadein {
     from {
         opacity: 0;
-        top: calc((100vh - var(--height)));
+        bottom: -100vh;
     }
     to {
         opacity: 1;
-        top: calc((100vh - var(--height)) / 2);
+        bottom: 0;
     }
 }
 /* Safari, Chrome, and Opera > 12.1 */
 @-webkit-keyframes fadein {
     from {
         opacity: 0;
-        top: calc((100vh - var(--height)));
+        bottom: -100vh;
     }
     to {
         opacity: 1;
-        top: calc((100vh - var(--height)) / 2);
+        bottom: 0;
     }
 }
 /* Internet Explorer */
 @-ms-keyframes fadein {
     from {
         opacity: 0;
-        top: calc((100vh - var(--height)));
+        bottom: -100vh;
     }
     to {
         opacity: 1;
-        top: calc((100vh - var(--height)) / 2);
+        bottom: 0;
     }
 }
 /* Opera < 12.1 */
 @-o-keyframes fadein {
     from {
         opacity: 0;
-        top: calc((100vh - var(--height)));
+        bottom: -100vh;
     }
     to {
         opacity: 1;
-        top: calc((100vh - var(--height)) / 2);
+        bottom: 0;
     }
 }
 #exitIcon {
+    font-size: x-large;
+    font-weight: bold;
     position: absolute;
-    top: 5vh;
-    right: 5vh;
+    top: 3vh;
+    right: 3vw;
     cursor: pointer;
 }
+
 .button, input[type="file"]::-webkit-file-upload-button {
     border-radius: .2em;
     background-color: var(--navBackground);
