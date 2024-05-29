@@ -615,6 +615,9 @@ details p {
     #submissionForm {
         margin-left: 0;
     }
+    .submissionField input, .submissionField textarea, .submissionField select {
+        max-width: 100%;
+    }
 
     .issueNav {
         display: none;
