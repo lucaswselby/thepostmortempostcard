@@ -59,17 +59,21 @@ const createHeader = () => {
 createHeader();
 
 // resizes feed height for desktop and mobile
+const root = document.querySelector(':root');
 const resizeScreen = () => {
     document.getElementsByTagName("MAIN")[0].style.marginTop = `${document.getElementsByTagName("HEADER")[0].offsetHeight}px`;
     if (feed()) {
         feed().style.height = `calc(${window.innerHeight}px - ${document.getElementsByTagName("HEADER")[0].offsetHeight + (mobile() ? document.getElementById("homeRight").offsetHeight : 0) + (document.getElementsByTagName("FOOTER")[0] ? document.getElementsByTagName("FOOTER")[0].offsetHeight : 0)}px - 1px)`;
+    }
+    if (document.getElementsByClassName("piece")[0].getElementsByTagName("IMG")[0]) {
+        for (let i = 0; i < document.getElementsByClassName("piece")[0].getElementsByTagName("IMG").length; i++)
+        document.getElementsByClassName("piece")[0].getElementsByTagName("IMG")[i].style.maxHeight = `calc(100vh - ${document.getElementsByTagName("HEADER")[0].offsetHeight}px - ${getComputedStyle(root).getPropertyValue("--headerShadow")})`;
     }
 };
 resizeScreen();
 
 // resizes header on scroll
 // https://www.w3schools.com/Css/css3_variables_javascript.asp
-const root = document.querySelector(':root');
 const headerFontSize = parseFloat(getComputedStyle(root).getPropertyValue('--headerFontSize'));
 // https://stackoverflow.com/questions/64624094/how-can-i-make-text-in-header-smaller-when-user-scroll-down
 const scroll = element => {
@@ -158,7 +162,10 @@ const p101 = new Piece(101, "./issue1story1.html", "Rose", "Ade Seegmiller", `<p
 const p103 = new Piece(103, "./issue1art1.html", "Water", "Ade Seegmiller", `<img src="./Water.jpg" alt="Water">`, "art", ["drawing"]);
 const pieces = [p101, p103];
 pieces.forEach(piece => {
-    if (document.getElementById(`p${piece.id}`)) document.getElementById(`p${piece.id}`).innerHTML = piece.content;
+    if (document.getElementById(`p${piece.id}`)) {
+        if (piece.genre === "art" || piece.genre === "photography") piece.content = `<a href="">${piece.content}</a>`; // TO-DO: add local url
+        document.getElementById(`p${piece.id}`).innerHTML = piece.content;
+    }
 });
 
 // https://www.geeksforgeeks.org/how-to-strip-out-html-tags-from-a-string-using-javascript/#

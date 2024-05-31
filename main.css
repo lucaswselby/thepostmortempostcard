@@ -14,6 +14,7 @@
     --tertiaryBackground: #c7bbbb;
     --headerIconPadding: calc(var(--headerFontSize) / 4);
     --requiredColor: red;
+    --headerShadow: .3em;
 }
 
 body {
@@ -40,6 +41,7 @@ header {
     text-align: center;
     color: var(--headerFontColor);
     z-index: 1;
+    box-shadow: 0 var(--headerShadow) var(--headerShadow) var(--shadowColor);
 }
 header h1 {
     margin: 0;
@@ -55,7 +57,6 @@ nav ul {
     grid-template-columns: repeat(var(--navs), calc(100% / var(--navs)));
     padding-left: 0;
     margin: 0;
-    box-shadow: 0 .3em .3em var(--shadowColor);
     padding: 1em 0;
     background-color: var(--navBackground);
 }
@@ -452,6 +453,9 @@ main {
     color: white !important;    
 }
 
+.piece {
+    padding-top: var(--mainMargin);
+}
 .piece img {
     max-width: 100%;
     max-height: 100vh;
@@ -518,14 +522,11 @@ details p {
 }
             
 @media only screen and (max-width: 600px) {
-    header h1 {
-        box-shadow: 0 .3em .15em var(--shadowColor);
+    header {
+        box-shadow: 0 var(--headerShadow) calc(var(--headerShadow) / 2) var(--shadowColor);
     }
     nav {
         position: absolute;
-    }
-    main {
-        margin: 0;
     }
 
     /* https://www.w3schools.com/howto/howto_css_menu_icon.asp */
