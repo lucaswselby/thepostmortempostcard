@@ -33,9 +33,13 @@ a:visited {
 }
 
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     text-align: center;
     color: var(--headerFontColor);
+    z-index: 1;
 }
 header h1 {
     margin: 0;
@@ -65,7 +69,6 @@ nav ul li {
     display: none;
     position: absolute;
     background-color: var(--shadowColor);
-    z-index: 1;
 }
 .dropdownInner li {
     width: 20vw;
@@ -102,7 +105,6 @@ nav ul li {
 #searchContainer.change ul, #searchContainer.change #searchBar {
     display: block;
     position: relative;
-    z-index: 1;
 
     /* https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load */
     -webkit-animation: slideDown .4s; /* Safari, Chrome and Opera > 12.1 */
@@ -167,6 +169,7 @@ nav ul li {
 }
 
 main {
+    z-index: 0;
     margin: 0 var(--mainMargin);
 }
 .grid8020 {
@@ -208,7 +211,6 @@ main {
     margin: 1em;
     box-shadow: -.2em .2em .2em var(--shadowColor);
     background-color: var(--secondaryBackground);
-    z-index: 0;
 }
 .feedItem h2 {
     margin-bottom: 0;
@@ -385,7 +387,6 @@ main {
     justify-content: center;
     align-items: center;
     position: relative;
-    z-index: 0;
 }
 .featuredWorks, #featuredIssues {
     display: grid;
@@ -569,7 +570,6 @@ details p {
     nav.change ul {
         display: block;
         position: relative;
-        z-index: 1;
     }
     .change .dropdownInner, .dropdownOuter:hover .dropdownInner  {
         display: none;
