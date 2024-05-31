@@ -31,7 +31,7 @@ const createHeader = () => {
         <img src="./searchIcon.png" alt="search icon" onclick="searchIconClick()">
     </div>` : ""}
 
-    <h1>the header</h1>
+    <a href="./index.html"><h1>the header</h1></a>
 
     <nav>
         <ul>
@@ -72,9 +72,9 @@ resizeScreen();
 const root = document.querySelector(':root');
 const headerFontSize = parseFloat(getComputedStyle(root).getPropertyValue('--headerFontSize'));
 // https://stackoverflow.com/questions/64624094/how-can-i-make-text-in-header-smaller-when-user-scroll-down
-if (feed()) {
-    feed().onscroll = () => {
-        const scrollTop = (feed().scrollTop) - (feed().clientTop || 0);
+const scroll = element => {
+    element.onscroll = () => {
+        const scrollTop = element.scrollY || element.scrollTop;
         let newHeaderFontSize = headerFontSize - ((scrollTop / 20) || 0);
         const minSize = 5;
         if (newHeaderFontSize <= minSize) {
@@ -84,7 +84,8 @@ if (feed()) {
         root.style.setProperty('--headerFontSize', `${newHeaderFontSize}vw`);
         resizeScreen();
     };
-}
+};
+scroll(feed() ? feed() : window);
 
 // sharing capabilities for pieces
 if (document.getElementById("shareIcons")) document.getElementById("shareIcons").innerHTML = `<a class="share" onclick="copyLink()"><img src="./shareIcon.png" alt="Copy to clipboard" class="darkMode"></a>
