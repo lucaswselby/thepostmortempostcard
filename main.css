@@ -279,10 +279,9 @@ main {
     bottom: 0;
     left: 0;
     width: 100vw;
-    align-content: center;
+    padding: 1em 0;
     text-align: center;
     background-color: var(--tertiaryBackground);
-    padding: 1em;
 
     /* https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load */
     -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
@@ -349,8 +348,10 @@ main {
     font-size: x-large;
     font-weight: bold;
     position: absolute;
-    top: 3vh;
-    right: 3vw;
+    padding: 10px;
+    top: 0;
+    right: 0;
+    text-align: end;
     cursor: pointer;
 }
 
