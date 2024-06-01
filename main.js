@@ -61,9 +61,10 @@ createHeader();
 // resizes feed height for desktop and mobile
 const root = document.querySelector(':root');
 const resizeScreen = () => {
-    document.getElementsByTagName("MAIN")[0].style.marginTop = `${document.getElementsByTagName("HEADER")[0].offsetHeight}px`;
+    const headerHeight = document.getElementsByTagName("HEADER")[0].offsetHeight;
+    document.getElementsByTagName("MAIN")[0].style.marginTop = `${headerHeight}px`;
     if (feed()) {
-        feed().style.height = `calc(${window.innerHeight}px - ${document.getElementsByTagName("HEADER")[0].offsetHeight + (mobile() ? document.getElementById("homeRight").offsetHeight : 0) + (document.getElementsByTagName("FOOTER")[0] ? document.getElementsByTagName("FOOTER")[0].offsetHeight : 0)}px - 1px)`;
+        feed().style.height = `calc(${window.innerHeight}px - ${headerHeight + (mobile() ? document.getElementById("homeRight").offsetHeight : 0) + (document.getElementsByTagName("FOOTER")[0] ? document.getElementsByTagName("FOOTER")[0].offsetHeight : 0)}px - 1px)`;
     }
     if (document.getElementsByClassName("piece")[0].getElementsByTagName("IMG")[0]) {
         for (let i = 0; i < document.getElementsByClassName("piece")[0].getElementsByTagName("IMG").length; i++)
