@@ -48,6 +48,7 @@ header h1 {
     background-color: var(--headerBackground);
     color: var(--headerFontColor);
     font-size: var(--headerFontSize);
+    font-family: "Playfair Display";
 }
 
 nav ul {
