@@ -56,7 +56,6 @@ const createHeader = () => {
     </div>
     <ul id="results"></ul>`;
 };
-createHeader();
 
 // resizes feed height for desktop and mobile
 const root = document.querySelector(':root');
@@ -71,7 +70,6 @@ const resizeScreen = () => {
         document.getElementsByClassName("piece")[0].getElementsByTagName("IMG")[i].style.maxHeight = `calc(100vh - ${document.getElementsByTagName("HEADER")[0].offsetHeight}px - ${getComputedStyle(root).getPropertyValue("--headerShadow")})`;
     }
 };
-resizeScreen();
 
 // resizes header on scroll
 // https://www.w3schools.com/Css/css3_variables_javascript.asp
@@ -90,7 +88,6 @@ const scroll = element => {
         resizeScreen();
     };
 };
-scroll(feed() ? feed() : window);
 
 // sharing capabilities for pieces
 if (document.getElementById("shareIcons")) document.getElementById("shareIcons").innerHTML = `<a class="share" onclick="copyLink()"><img src="./shareIcon.png" alt="Copy to clipboard" class="darkMode"></a>
@@ -256,6 +253,7 @@ const search = () => {
 const loadFunctions = () => {
     createHeader();
     resizeScreen();
+    scroll(feed() ? feed() : window);
 
     // searches on submit or enter
     document.getElementById("searchButton").onclick = search;

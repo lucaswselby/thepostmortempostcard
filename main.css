@@ -584,6 +584,9 @@ details p {
         display: inline-block;
     }
 
+    main {
+        padding: 0;
+    }
     .grid8020 {
         display: block;
     }
