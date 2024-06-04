@@ -49,6 +49,7 @@ header h1 {
     color: var(--headerFontColor);
     font-size: var(--headerFontSize);
     font-family: "Playfair Display";
+    font-style: italic;
 }
 
 nav ul {

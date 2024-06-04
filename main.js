@@ -31,7 +31,7 @@ const createHeader = () => {
         <img src="./searchIcon.png" alt="search icon" onclick="searchIconClick()">
     </div>` : ""}
 
-    <a href="./index.html"><h1>the postmortem postcard</h1></a>
+    <a href="./index.html"><h1 class="font-effect-3d-float">the postmortem postcard</h1></a>
 
     <nav>
         <ul>
