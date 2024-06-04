@@ -66,7 +66,7 @@ const resizeScreen = () => {
     if (feed()) {
         feed().style.height = `calc(${window.innerHeight}px - ${headerHeight + (mobile() ? document.getElementById("homeRight").offsetHeight : 0) + (document.getElementsByTagName("FOOTER")[0] ? document.getElementsByTagName("FOOTER")[0].offsetHeight : 0)}px - 1px)`;
     }
-    if (document.getElementsByClassName("piece")[0].getElementsByTagName("IMG")[0]) {
+    if (document.getElementsByClassName("piece")[0] && document.getElementsByClassName("piece")[0].getElementsByTagName("IMG")[0]) {
         for (let i = 0; i < document.getElementsByClassName("piece")[0].getElementsByTagName("IMG").length; i++)
         document.getElementsByClassName("piece")[0].getElementsByTagName("IMG")[i].style.maxHeight = `calc(100vh - ${document.getElementsByTagName("HEADER")[0].offsetHeight}px - ${getComputedStyle(root).getPropertyValue("--headerShadow")})`;
     }
