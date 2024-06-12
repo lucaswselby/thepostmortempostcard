@@ -60,7 +60,7 @@ const createHeader = () => {
 // resizes feed height for desktop and mobile
 const root = document.querySelector(':root');
 const resizeScreen = () => {
-    const headerHeight = document.getElementsByTagName("HEADER")[0].offsetHeight;
+    const headerHeight = document.getElementsByTagName("HEADER")[0].offsetHeight + parseFloat(getComputedStyle(document.querySelector("HEADER")).marginBottom);
     document.getElementsByTagName("MAIN")[0].style.marginTop = `${headerHeight}px`;
     if (feed()) {
         feed().style.height = `calc(${window.innerHeight}px - ${headerHeight + (mobile() ? document.getElementById("homeRight").offsetHeight : 0)}px)`;
@@ -85,6 +85,7 @@ const scroll = element => {
         }
 
         root.style.setProperty('--headerFontSize', `${newHeaderFontSize}vw`);
+        document.getElementsByTagName("HEADER")[0].style.marginBottom = "0";
         resizeScreen();
     };
 };
