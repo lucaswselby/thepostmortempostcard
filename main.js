@@ -76,7 +76,7 @@ const resizeScreen = () => {
 const headerFontSize = parseFloat(getComputedStyle(root).getPropertyValue('--headerFontSize'));
 const scroll = element => {
     element.onscroll = () => {
-        const scrollTop = element.scrollY || element.scrollTop || 0; // TO-DO: Why is this rapidly changing at the bottom of the page?
+        const scrollTop = element.scrollY || element.scrollTop || 0;
         const minSize = 5;        
         const initialFontSize = 7;
         const maxScrollY = 200; // in pixels
