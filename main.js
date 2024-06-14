@@ -78,16 +78,20 @@ const headerFontSize = parseFloat(getComputedStyle(root).getPropertyValue('--hea
 const scroll = element => {
     element.onscroll = () => {
         const scrollTop = element.scrollY || element.scrollTop || 0; // TO-DO: Why is this rapidly changing at the bottom of the page?
-        let newHeaderFontSize = headerFontSize - scrollTop / 50;
-        const minSize = 5;
-        if (newHeaderFontSize <= minSize) {
-            newHeaderFontSize = minSize;
+        const minSize = 5;        
+        const initialFontSize = 7;
+        const maxScrollY = 200; // in pixels
+        if (scrollTop < maxScrollY) {
+            let newHeaderFontSize = initialFontSize - (scrollTop / maxScrollY) * (initialFontSize - minSize);
+            root.style.setProperty('--headerFontSize', `${newHeaderFontSize}vw`);
         }
-
-        root.style.setProperty('--headerFontSize', `${newHeaderFontSize}vw`);
+        else {
+            root.style.setProperty('--headerFontSize', `${minSize}vw`);
+        }
         document.getElementsByTagName("HEADER")[0].style.marginBottom = "0";
         resizeScreen();
     };
+      
 };
 
 // sharing capabilities for pieces
