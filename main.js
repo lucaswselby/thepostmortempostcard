@@ -61,7 +61,7 @@ const createHeader = () => {
 const root = document.querySelector(':root');
 const resizeScreen = () => {
     const headerHeight = document.getElementsByTagName("HEADER")[0].offsetHeight + parseFloat(getComputedStyle(document.querySelector("HEADER")).marginBottom);
-    document.getElementsByTagName("MAIN")[0].style.marginTop = `${headerHeight}px`;
+    //document.getElementsByTagName("MAIN")[0].style.marginTop = `${headerHeight}px`;
     if (feed()) {
         feed().style.height = `calc(${window.innerHeight}px - ${headerHeight + (mobile() ? document.getElementById("homeRight").offsetHeight : 0)}px)`;
     }
@@ -73,7 +73,7 @@ const resizeScreen = () => {
 
 // resizes header on scroll
 // https://www.w3schools.com/Css/css3_variables_javascript.asp
-const headerFontSize = parseFloat(getComputedStyle(root).getPropertyValue('--headerFontSize'));
+/*const headerFontSize = parseFloat(getComputedStyle(root).getPropertyValue('--headerFontSize'));
 // https://stackoverflow.com/questions/64624094/how-can-i-make-text-in-header-smaller-when-user-scroll-down
 const scroll = element => {
     element.onscroll = () => {
@@ -88,7 +88,7 @@ const scroll = element => {
         document.getElementsByTagName("HEADER")[0].style.marginBottom = "0";
         resizeScreen();
     };
-};
+};*/
 
 // sharing capabilities for pieces
 if (document.getElementById("shareIcons")) document.getElementById("shareIcons").innerHTML = `<a class="share" onclick="copyLink()"><img src="./shareIcon.png" alt="Copy to clipboard" class="darkMode"></a>
@@ -254,7 +254,7 @@ const search = () => {
 const loadFunctions = () => {
     createHeader();
     resizeScreen();
-    scroll(feed() ? feed() : window);
+    //scroll(feed() ? feed() : window);
 
     // searches on submit or enter
     document.getElementById("searchButton").onclick = search;
