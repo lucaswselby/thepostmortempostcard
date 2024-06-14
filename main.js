@@ -74,7 +74,6 @@ const resizeScreen = () => {
 // resizes header on scroll
 // https://www.w3schools.com/Css/css3_variables_javascript.asp
 const headerFontSize = parseFloat(getComputedStyle(root).getPropertyValue('--headerFontSize'));
-// https://stackoverflow.com/questions/64624094/how-can-i-make-text-in-header-smaller-when-user-scroll-down
 const scroll = element => {
     element.onscroll = () => {
         const scrollTop = element.scrollY || element.scrollTop || 0; // TO-DO: Why is this rapidly changing at the bottom of the page?
