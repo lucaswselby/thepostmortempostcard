@@ -253,23 +253,25 @@ main {
 .feedPiece p, .feedUpdate p, .feedDeadline p {
     padding-left: 2em;
 }
-#goals {
-    margin-bottom: 1em;
-}
-#mailingListForm {
-    padding: 1em 0;
-    position: absolute;
-    bottom: 0;
-    max-width: calc(var(--twentyPercent) - var(--mainMargin));
-}
-#mailingListForm input {
-    max-width: 100%;
-}
 
 #homeRight, .issueNav {
     padding: 1em;
     background-color: var(--tertiaryBackground);
     margin-top: 1em;
+}
+#homeRight {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+#goals {
+    margin-bottom: 1em;
+}
+#homeRight .logo {
+    display: block;
+}
+#mailingListForm input {
+    max-width: 100%;
 }
 
 #menuIcon {
@@ -612,6 +614,9 @@ details p {
     #homeRight {
         margin-top: 0;
         box-shadow: 0 0 .3em var(--shadowColor);
+    }
+    #homeRight .logo {
+        display: none;
     }
     #mailingListForm {
         position: static;
