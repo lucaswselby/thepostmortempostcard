@@ -75,7 +75,7 @@ nav ul li {
     background-color: var(--shadowColor);
 }
 .dropdownInner li {
-    width: 20vw;
+    width: calc(100vw / var(--navs));
 }
 .dropdownOuter:hover .dropdownInner  {
     display: block;
