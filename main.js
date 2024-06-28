@@ -169,15 +169,17 @@ pieces.forEach(piece => {
         pieceElement.innerHTML = piece.content;
 
         // replaces images with clickable images
-        for (let i = 0; i < pieceElement.getElementsByTagName("IMG").length; i++) {
-            const pieceImgElement = pieceElement.getElementsByTagName("IMG")[i];
-            const newPieceImgElement = document.createElement("img");
-            newPieceImgElement.src = pieceImgElement.src;
-            newPieceImgElement.alt = pieceImgElement.alt;
-            const pieceImgAnchor = document.createElement("a");
-            pieceImgAnchor.href = pieceImgElement.src;
-            pieceImgAnchor.appendChild(newPieceImgElement);
-            pieceImgElement.replaceWith(pieceImgAnchor);
+        if (!document.getElementsByClassName("imgPreview")[0]) {
+            for (let i = 0; i < pieceElement.getElementsByTagName("IMG").length; i++) {
+                const pieceImgElement = pieceElement.getElementsByTagName("IMG")[i];
+                const newPieceImgElement = document.createElement("img");
+                newPieceImgElement.src = pieceImgElement.src;
+                newPieceImgElement.alt = pieceImgElement.alt;
+                const pieceImgAnchor = document.createElement("a");
+                pieceImgAnchor.href = pieceImgElement.src;
+                pieceImgAnchor.appendChild(newPieceImgElement);
+                pieceImgElement.replaceWith(pieceImgAnchor);
+            }
         }
     }
 });
