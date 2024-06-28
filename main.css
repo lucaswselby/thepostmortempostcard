@@ -439,6 +439,10 @@ main {
 }
 .issueNav {
     list-style-type: none;
+    text-align: center;
+}
+.issueNav img {
+    height: 2em;
 }
 #backToTopIssue {
     position: fixed;
