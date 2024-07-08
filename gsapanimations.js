@@ -4,8 +4,8 @@ const slideInAnimation = className => {
   gsap.utils.toArray(`.${className}`).forEach(function (elem) {
     ScrollTrigger.create({
       trigger: elem,
-      start: "top 95%",
-      end: "bottom 5%",
+      start: "top 100%",
+      end: "bottom 0",
       markers: false,
       onEnter: function () {
         gsap.fromTo(

@@ -63,34 +63,35 @@ const resizeScreen = () => {
     const headerHeight = document.getElementsByTagName("HEADER")[0].offsetHeight + parseFloat(getComputedStyle(document.querySelector("HEADER")).marginBottom);
     document.getElementsByTagName("MAIN")[0].style.marginTop = `${headerHeight}px`;
     if (feed()) {
-        feed().style.height = `calc(${window.innerHeight}px - ${headerHeight + (mobile() ? document.getElementById("homeRight").offsetHeight : 0)}px)`;
+        feed().style.height = `${window.innerHeight - headerHeight - (mobile() ? document.getElementById("homeRight").offsetHeight : 0)}px`;
     }
-    if (document.getElementsByClassName("piece")[0] && document.getElementsByClassName("piece")[0].getElementsByTagName("IMG")[0]) {
+    else if (document.getElementsByClassName("piece")[0] && document.getElementsByClassName("piece")[0].getElementsByTagName("IMG")[0]) {
         for (let i = 0; i < document.getElementsByClassName("piece")[0].getElementsByTagName("IMG").length; i++)
         document.getElementsByClassName("piece")[0].getElementsByTagName("IMG")[i].style.maxHeight = `calc(100vh - ${document.getElementsByTagName("HEADER")[0].offsetHeight}px - ${getComputedStyle(root).getPropertyValue("--headerShadow")})`;
     }
 };
 
-// resizes header on scroll
-// https://www.w3schools.com/Css/css3_variables_javascript.asp
-const headerFontSize = parseFloat(getComputedStyle(root).getPropertyValue('--headerFontSize'));
+// slide in or out header on scroll
 const scroll = element => {
+    // https://stackoverflow.com/questions/31223341/detecting-scroll-direction
+    var lastScrollTop = 0;
     element.onscroll = () => {
-        const scrollTop = element.scrollY || element.scrollTop || 0;
-        const minSize = 5;        
-        const initialFontSize = 7;
-        const maxScrollY = 200; // in pixels
-        if (scrollTop < maxScrollY) {
-            let newHeaderFontSize = initialFontSize - (scrollTop / maxScrollY) * (initialFontSize - minSize);
-            root.style.setProperty('--headerFontSize', `${newHeaderFontSize}vw`);
+        const st = element === window ? element.scrollY : element.scrollTop;
+        // https://stackoverflow.com/questions/9439725/how-to-detect-if-browser-window-is-scrolled-to-bottom
+        const atBottom = element === window ? window.innerHeight + Math.round(window.scrollY) >= document.body.offsetHeight : Math.ceil(element.scrollHeight - element.scrollTop) === element.clientHeight;
+        console.log(atBottom);
+        if (st > lastScrollTop || atBottom) {
+            document.getElementsByTagName("HEADER")[0].style.top = `-${document.getElementsByTagName("HEADER")[0].offsetHeight}px`;
+            document.getElementsByTagName("MAIN")[0].style.marginTop = "0";
+            if (feed()) feed().style.height = `${window.innerHeight - (mobile() ? document.getElementById("homeRight").offsetHeight : 0)}px`;
         }
-        else {
-            root.style.setProperty('--headerFontSize', `${minSize}vw`);
+        else if (st < lastScrollTop) {
+            document.getElementsByTagName("HEADER")[0].style.top = "0";
+            document.getElementsByTagName("MAIN")[0].style.marginTop = `${document.getElementsByTagName("HEADER")[0].offsetHeight}px`;
+            if (feed()) feed().style.height = `${window.innerHeight - document.getElementsByTagName("HEADER")[0].offsetHeight - (mobile() ? document.getElementById("homeRight").offsetHeight : 0)}px`;
         }
-        document.getElementsByTagName("HEADER")[0].style.marginBottom = "0";
-        resizeScreen();
-    };
-      
+        lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    } 
 };
 
 // sharing capabilities for pieces
@@ -265,7 +266,8 @@ const search = () => {
 const loadFunctions = () => {
     createHeader();
     resizeScreen();
-    scroll(feed() ? feed() : window);
+    //scroll(feed() ? feed() : window);
+    scroll(window);
 
     // searches on submit or enter
     document.getElementById("searchButton").onclick = search;

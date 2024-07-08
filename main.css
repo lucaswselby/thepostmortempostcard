@@ -16,13 +16,18 @@
     --requiredColor: red;
     --headerShadow: .3em;
 }
+* {
+    scroll-behavior: smooth;
+}
 
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--primaryBackground);
     color: var(--bodyFontColor);
-    scroll-behavior: smooth;
+}
+main {
+    transition: margin-top 1s;
 }
 
 a {
@@ -44,6 +49,7 @@ header {
     z-index: 1;
     box-shadow: 0 var(--headerShadow) var(--headerShadow) var(--shadowColor);
     margin-bottom: 1em;
+    transition: top 1s;
 }
 header h1 {
     margin: 0;
@@ -190,9 +196,9 @@ main {
 #feed {
     height: 100vh;
     overflow-y: auto;
-    scroll-behavior: smooth;
     mask-image: linear-gradient(180deg, var(--primaryBackground) 90%, transparent);
     scrollbar-width: none;
+    transition: height 1s;
 }
 #feed1 {
     margin-bottom: 10%;
