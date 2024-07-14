@@ -91,7 +91,7 @@ const scroll = element => {
             if (feed()) feed().style.height = `${window.innerHeight - document.getElementsByTagName("HEADER")[0].offsetHeight - (mobile() ? document.getElementById("homeRight").offsetHeight : 0)}px`;
         }
         lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-    } 
+    }
 };
 
 // sharing capabilities for pieces
