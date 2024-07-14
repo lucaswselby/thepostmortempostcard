@@ -51,9 +51,20 @@ header {
     margin-bottom: 1em;
     transition: top 1s;
 }
+#headerTitle {
+    display: flex;
+    background-color: var(--headerBackground);
+    align-items: center;
+    justify-content: center;
+}
+#headerLogo {
+    height: var(--headerFontSize);
+    position: absolute;
+    left: 0;
+    margin: calc(var(--headerFontSize) / 5);
+}
 header h1 {
     margin: 0;
-    background-color: var(--headerBackground);
     color: var(--headerFontColor);
     font-size: var(--headerFontSize);
     font-family: "Playfair Display", Georgia, 'Times New Roman', Times, serif;
@@ -544,6 +555,12 @@ details p {
     header {
         box-shadow: 0 var(--headerShadow) calc(var(--headerShadow) / 2) var(--shadowColor);
     }
+    #headerTitle {
+        justify-content: space-between;
+    }
+    #headerLogo {
+        display: none;
+    }
     nav {
         position: absolute;
     }
@@ -552,9 +569,7 @@ details p {
     #menuIcon {
         --barHeight: calc(var(--headerFontSize) / 7);
         cursor: pointer;
-        display: inline-block;
-        position: absolute;
-        left: 0;
+        display: inline;
         padding: 0 var(--headerIconPadding);
     }
     .bar1, .bar2, .bar3 {
@@ -598,6 +613,9 @@ details p {
         display: none;
     }
 
+    #searchContainer {
+        position: relative;
+    }
     #searchContainer img {
         display: inline-block;
     }

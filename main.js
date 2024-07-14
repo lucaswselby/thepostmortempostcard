@@ -20,18 +20,22 @@ const feed = () => {
 
 // add header to each page
 const createHeader = () => {
-    document.getElementsByTagName("HEADER")[0].innerHTML = `<!-- https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
-    <div id="menuIcon" onclick="menuIconClick(this)">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
+    document.getElementsByTagName("HEADER")[0].innerHTML = `<img id="headerLogo" src="./logo.PNG" alt="Logo">
+    
+        <div id="headerTitle">
+        <!-- https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
+        <div id="menuIcon" onclick="menuIconClick(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+
+        <a href="./index.html"><h1 class="font-effect-3d-float">the postmortem postcard</h1></a>
+
+        ${mobile() ? `<div id="searchContainer">
+            <img src="./searchIcon.png" alt="search icon" onclick="searchIconClick()">
+        </div>` : ""}
     </div>
-
-    ${mobile() ? `<div id="searchContainer">
-        <img src="./searchIcon.png" alt="search icon" onclick="searchIconClick()">
-    </div>` : ""}
-
-    <a href="./index.html"><h1 class="font-effect-3d-float">the postmortem postcard</h1></a>
 
     <nav>
         <ul>
