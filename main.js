@@ -84,11 +84,13 @@ const scroll = element => {
         // https://stackoverflow.com/questions/9439725/how-to-detect-if-browser-window-is-scrolled-to-bottom
         const atBottom = element === window ? window.innerHeight + Math.round(window.scrollY) >= document.body.offsetHeight : Math.ceil(element.scrollHeight - element.scrollTop) === element.clientHeight;
         console.log(atBottom);
+        // hide header
         if (st > lastScrollTop || atBottom) {
             document.getElementsByTagName("HEADER")[0].style.top = `-${document.getElementsByTagName("HEADER")[0].offsetHeight}px`;
             document.getElementsByTagName("MAIN")[0].style.marginTop = "0";
             if (feed()) feed().style.height = `${window.innerHeight - (mobile() ? document.getElementById("homeRight").offsetHeight : 0)}px`;
         }
+        // show header
         else if (st < lastScrollTop) {
             document.getElementsByTagName("HEADER")[0].style.top = "0";
             document.getElementsByTagName("MAIN")[0].style.marginTop = `${document.getElementsByTagName("HEADER")[0].offsetHeight}px`;
