@@ -85,7 +85,7 @@ const scroll = element => {
         const atBottom = element === window ? window.innerHeight + Math.round(window.scrollY) >= document.body.offsetHeight : Math.ceil(element.scrollHeight - element.scrollTop) === element.clientHeight;
         console.log(atBottom);
         // hide header
-        if (st > lastScrollTop || atBottom) {
+        if ((st > lastScrollTop || atBottom) && !document.getElementById("search").focus) {
             document.getElementsByTagName("HEADER")[0].style.top = `-${document.getElementsByTagName("HEADER")[0].offsetHeight}px`;
             document.getElementsByTagName("MAIN")[0].style.marginTop = "0";
             if (feed()) feed().style.height = `${window.innerHeight - (mobile() ? document.getElementById("homeRight").offsetHeight : 0)}px`;
