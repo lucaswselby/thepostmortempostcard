@@ -18,85 +18,36 @@ const feed = () => {
     return document.getElementById("feed") ? document.getElementById("feed") : null;
 };
 
-// add header to each page
-const createHeader = () => {
-    document.getElementsByTagName("HEADER")[0].innerHTML = `<img id="headerLogo" src="./logo.PNG" alt="Logo">
-    
-        <div id="headerTitle">
-        <!-- https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
-        <div id="menuIcon" onclick="menuIconClick(this)">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </div>
+// resizes feed height for desktop and mobile
+const root = document.querySelector(':root');
+const resizeScreen = () => {
+    // calculates feed height
+    const headerHeight = document.getElementsByTagName("HEADER")[0].offsetHeight;
+    if (feed()) {
+        feed().style.height = `${window.innerHeight - headerHeight - (mobile() ? document.getElementById("homeRight").offsetHeight : 0)}px`;
+    }
 
-        <a href="./index.html"><h1 class="font-effect-3d-float">the postmortem postcard</h1></a>
-
-        ${mobile() ? `<div id="searchContainer">
+    // adds icons based on screen size
+    if (document.getElementById("searchContainerContainer")) document.getElementById("searchContainerContainer").remove();
+    if (document.getElementById("searchContainer")) document.getElementById("searchContainer").remove();
+    if (mobile()) {
+        document.getElementById("headerTitle").innerHTML += `<div class="mobileOnly" id="searchContainer">
             <img src="./searchIcon.png" alt="search icon" onclick="searchIconClick()">
-        </div>` : ""}
-    </div>
+        </div>`;
+    }
+    else {
+        document.getElementsByTagName("NAV")[0].getElementsByTagName("UL")[0].innerHTML += `<li id="searchContainerContainer">
+            <div style="cursor: pointer;" onclick="searchIconClick()">SEARCH</div>
+            <div id="searchContainer"></div>
+        </li>`;
+    }
 
-    <nav>
-        <ul>
-            <li><a href="./index.html">HOME</a></li>
-            <li class="dropdownOuter"><a href="./issues.html">ISSUES</a>
-                <ul class="dropdownInner">
-                    <li><a href="./issue1.html">Issue 1</a></li>
-                </ul>
-            </li>
-            <li><a href="./submissions.html">SUBMISSIONS</a></li>
-            <li><a href="./team.html">MEET THE TEAM</a></li>
-            <li><a href="./faqs.html">FAQs</a></li>
-            <li class="mobileIcon">
-                <div onclick="searchIconClick()">SEARCH</div>
-                ${!mobile() ? `<div id="searchContainer"></div>` : ""}
-            </li>
-        </ul>
-    </nav>`;
+    // readds search functionality
     document.getElementById("searchContainer").innerHTML += `<div id="searchBar">
         <input type="text" id="search" name="search">
         <input type="submit" id="searchButton" value="Search">
     </div>
     <ul id="results"></ul>`;
-};
-
-// resizes feed height for desktop and mobile
-const root = document.querySelector(':root');
-const resizeScreen = () => {
-    const headerHeight = document.getElementsByTagName("HEADER")[0].offsetHeight + parseFloat(getComputedStyle(document.querySelector("HEADER")).marginBottom);
-    document.getElementsByTagName("MAIN")[0].style.marginTop = `${headerHeight}px`;
-    if (feed()) {
-        feed().style.height = `${window.innerHeight - headerHeight - (mobile() ? document.getElementById("homeRight").offsetHeight : 0)}px`;
-    }
-    else if (document.getElementsByClassName("piece")[0] && document.getElementsByClassName("piece")[0].getElementsByTagName("IMG")[0]) {
-        for (let i = 0; i < document.getElementsByClassName("piece")[0].getElementsByTagName("IMG").length; i++)
-        document.getElementsByClassName("piece")[0].getElementsByTagName("IMG")[i].style.maxHeight = `calc(100vh - ${document.getElementsByTagName("HEADER")[0].offsetHeight}px - ${getComputedStyle(root).getPropertyValue("--headerShadow")})`;
-    }
-};
-
-// slide in or out header on scroll
-const scroll = element => {
-    // https://stackoverflow.com/questions/31223341/detecting-scroll-direction
-    var lastScrollTop = 0;
-    element.onscroll = () => {
-        const st = element === window ? element.scrollY : element.scrollTop;
-        // https://stackoverflow.com/questions/9439725/how-to-detect-if-browser-window-is-scrolled-to-bottom
-        const atBottom = element === window ? window.innerHeight + Math.round(window.scrollY) >= document.body.offsetHeight : Math.ceil(element.scrollHeight - element.scrollTop) === element.clientHeight;
-        // hide header
-        if ((st > lastScrollTop || atBottom) && document.activeElement !== document.getElementById("search")) {
-            document.getElementsByTagName("HEADER")[0].style.top = `-${document.getElementsByTagName("HEADER")[0].offsetHeight}px`;
-            document.getElementsByTagName("MAIN")[0].style.marginTop = "0";
-            if (feed()) feed().style.height = `${window.innerHeight - (mobile() ? document.getElementById("homeRight").offsetHeight : 0)}px`;
-        }
-        // show header
-        else if (st < lastScrollTop) {
-            document.getElementsByTagName("HEADER")[0].style.top = "0";
-            document.getElementsByTagName("MAIN")[0].style.marginTop = `${document.getElementsByTagName("HEADER")[0].offsetHeight}px`;
-            if (feed()) feed().style.height = `${window.innerHeight - document.getElementsByTagName("HEADER")[0].offsetHeight - (mobile() ? document.getElementById("homeRight").offsetHeight : 0)}px`;
-        }
-        lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-    }
 };
 
 // sharing capabilities for pieces
@@ -270,10 +221,7 @@ const search = () => {
 
 // resizing the window still loads all functions
 const loadFunctions = () => {
-    createHeader();
     resizeScreen();
-    //scroll(feed() ? feed() : window);
-    scroll(window);
 
     // searches on submit or enter
     document.getElementById("searchButton").onclick = search;

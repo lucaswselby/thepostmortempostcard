@@ -15,7 +15,34 @@
     </head>
 
     <body>
-        <header></header>
+        <header>
+            <img id="headerLogo" src="./logo.PNG" alt="Logo">
+    
+            <div id="headerTitle">
+                <!-- https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
+                <div id="menuIcon" onclick="menuIconClick(this)">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+        
+                <a href="./index.html"><h1 class="font-effect-3d-float">the postmortem postcard</h1></a>
+            </div>
+        
+            <nav>
+                <ul>
+                    <li><a href="./index.html">HOME</a></li>
+                    <li class="dropdownOuter"><a href="./issues.html">ISSUES</a>
+                        <ul class="dropdownInner">
+                            <li><a href="./issue1.html">Issue 1</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./submissions.html">SUBMISSIONS</a></li>
+                    <li><a href="./team.html">MEET THE TEAM</a></li>
+                    <li><a href="./faqs.html">FAQs</a></li>
+                </ul>
+            </nav>
+        </header>
 
         <main class="grid8020">
             <div id="feedWrapper">

@@ -26,9 +26,6 @@ body {
     background-color: var(--primaryBackground);
     color: var(--bodyFontColor);
 }
-main {
-    transition: margin-top 1s;
-}
 
 a {
     text-decoration: none;
@@ -40,16 +37,11 @@ a:visited {
 }
 
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     text-align: center;
     color: var(--headerFontColor);
     z-index: 1;
     box-shadow: 0 var(--headerShadow) var(--headerShadow) var(--shadowColor);
-    margin-bottom: 1em;
-    transition: top 1s;
 }
 #headerTitle {
     display: flex;
@@ -80,6 +72,7 @@ nav ul {
     margin: 0;
     padding: 1em 0;
     background-color: var(--navBackground);
+    z-index: 1;
 }
 #feedWrapper a, #feedWrapper a:visited {
     color: var(--bodyFontColor);
@@ -97,9 +90,6 @@ nav ul li {
 }
 .dropdownOuter:hover .dropdownInner  {
     display: block;
-}
-.mobileIcon {
-    cursor: pointer;
 }
 
 #searchContainer {
@@ -127,59 +117,9 @@ nav ul li {
 #searchContainer.change ul, #searchContainer.change #searchBar {
     display: block;
     position: relative;
-
-    /* https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load */
-    -webkit-animation: slideDown .4s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: slideDown .4s; /* Firefox < 16 */
-        -ms-animation: slideDown .4s; /* Internet Explorer */
-         -o-animation: slideDown .4s; /* Opera < 12.1 */
-            animation: slideDown .4s;
+    animation: slideDown .4s;
 }
 @keyframes slideDown {
-    from {
-        opacity: 0;
-        top: -1em;
-    }
-    to {
-        opacity: 1;
-        top: 0;
-    }
-}   
-/* Firefox < 16 */
-@-moz-keyframes slideDown {
-    from {
-        opacity: 0;
-        top: -1em;
-    }
-    to {
-        opacity: 1;
-        top: 0;
-    }
-}
-/* Safari, Chrome, and Opera > 12.1 */
-@-webkit-keyframes slideDown {
-    from {
-        opacity: 0;
-        top: -1em;
-    }
-    to {
-        opacity: 1;
-        top: 0;
-    }
-}
-/* Internet Explorer */
-@-ms-keyframes slideDown {
-    from {
-        opacity: 0;
-        top: -1em;
-    }
-    to {
-        opacity: 1;
-        top: 0;
-    }
-}
-/* Opera < 12.1 */
-@-o-keyframes slideDown {
     from {
         opacity: 0;
         top: -1em;
@@ -193,7 +133,6 @@ nav ul li {
 main {
     z-index: 0;
     padding: 0 var(--mainMargin);
-    padding-top: var(--mainMargin);
 }
 .grid8020 {
     padding-top: 0;
@@ -209,7 +148,6 @@ main {
     overflow-y: auto;
     mask-image: linear-gradient(180deg, var(--primaryBackground) 90%, transparent);
     scrollbar-width: none;
-    transition: height 1s;
 }
 #feed1 {
     margin-bottom: 10%;
@@ -249,7 +187,6 @@ main {
     align-self: flex-end;
 }
 .feedImgPiece {
-    flex-flow: row nowrap;
     align-items: center;
     display: grid;
     grid-template-columns: calc(var(--feedItemLength) + 2 * var(--feedImgMargin)) auto;
@@ -305,59 +242,9 @@ main {
     padding: 1em 0;
     text-align: center;
     background-color: var(--tertiaryBackground);
-
-    /* https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load */
-    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 1s; /* Firefox < 16 */
-        -ms-animation: fadein 1s; /* Internet Explorer */
-         -o-animation: fadein 1s; /* Opera < 12.1 */
-            animation: fadein 1s;
+    animation: fadein 1s;
 }
 @keyframes fadein {
-    from {
-        opacity: 0;
-        bottom: -100vh;
-    }
-    to {
-        opacity: 1;
-        bottom: 0;
-    }
-}   
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-    from {
-        opacity: 0;
-        bottom: -100vh;
-    }
-    to {
-        opacity: 1;
-        bottom: 0;
-    }
-}
-/* Safari, Chrome, and Opera > 12.1 */
-@-webkit-keyframes fadein {
-    from {
-        opacity: 0;
-        bottom: -100vh;
-    }
-    to {
-        opacity: 1;
-        bottom: 0;
-    }
-}
-/* Internet Explorer */
-@-ms-keyframes fadein {
-    from {
-        opacity: 0;
-        bottom: -100vh;
-    }
-    to {
-        opacity: 1;
-        bottom: 0;
-    }
-}
-/* Opera < 12.1 */
-@-o-keyframes fadein {
     from {
         opacity: 0;
         bottom: -100vh;
@@ -592,12 +479,7 @@ details p {
     nav ul {
         --navs: calc(var(--navs) - 1);
         display: none;
-        /* https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load */
-        -webkit-animation: slideDown .4s; /* Safari, Chrome and Opera > 12.1 */
-           -moz-animation: slideDown .4s; /* Firefox < 16 */
-            -ms-animation: slideDown .4s; /* Internet Explorer */
-             -o-animation: slideDown .4s; /* Opera < 12.1 */
-                animation: slideDown .4s;
+        animation: slideDown .4s;
     }
     nav ul li {
         padding: .2em;
@@ -607,9 +489,6 @@ details p {
         position: relative;
     }
     .change .dropdownInner, .dropdownOuter:hover .dropdownInner  {
-        display: none;
-    }
-    .mobileIcon {
         display: none;
     }
 
