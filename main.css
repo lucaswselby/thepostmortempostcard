@@ -408,6 +408,9 @@ main {
     grid-row: 1 / 4;
     padding: var(--padding);
 }
+#joinTeam {
+    margin-top: 2em;
+}
 
 summary {
     margin: 0.3em 0 0.8em 0;
