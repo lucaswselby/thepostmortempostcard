@@ -502,6 +502,29 @@ details p {
     #searchContainer img {
         display: inline-block;
     }
+    #searchContainer.change ul, #searchContainer.change #searchBar {
+        --top: calc(var(--headerFontSize) + var(--headerIconPadding));
+        display: block;
+        position: fixed;
+        right: 0;
+        animation: mobileSlideDown .4s;
+    }
+    #searchContainer.change ul {
+        top: calc(var(--top) + 1.5em);
+    }
+    #searchContainer.change #searchBar {
+        top: var(--top);
+    }
+    @keyframes mobileSlideDown {
+        from {
+            opacity: 0;
+            top: calc(var(--headerFontSize) + var(--headerIconPadding) - 1em);
+        }
+        to {
+            opacity: 1;
+            top: calc(var(--headerFontSize) + var(--headerIconPadding));
+        }
+    }
 
     main {
         padding: 0;
