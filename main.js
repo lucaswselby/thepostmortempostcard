@@ -229,4 +229,8 @@ const search = () => {
 
 // resizing the window still loads all functions
 resizeScreen();
-window.onresize = resizeScreen;
+window.onresize = () => {
+    if (!document.getElementById("searchContainer").classList.contains("change")) {
+        resizeScreen();
+    }
+};
