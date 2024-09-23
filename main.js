@@ -19,7 +19,6 @@ const feed = () => {
 };
 
 // resizes feed height for desktop and mobile
-const root = document.querySelector(':root');
 const resizeScreen = () => {
     // calculates feed height
     const headerHeight = document.getElementsByTagName("HEADER")[0].offsetHeight;
@@ -48,6 +47,15 @@ const resizeScreen = () => {
         <input type="submit" id="searchButton" value="Search">
     </div>
     <ul id="results"></ul>`;
+
+    // searches on submit or enter
+    document.getElementById("searchButton").onclick = search;
+    document.getElementById("search").addEventListener("keypress", event => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            search();
+        }
+    });
 };
 
 // sharing capabilities for pieces
@@ -220,17 +228,5 @@ const search = () => {
 };
 
 // resizing the window still loads all functions
-const loadFunctions = () => {
-    resizeScreen();
-
-    // searches on submit or enter
-    document.getElementById("searchButton").onclick = search;
-    document.getElementById("search").addEventListener("keypress", event => {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            search();
-        }
-    });
-};
-loadFunctions();
-window.onresize = loadFunctions;
+resizeScreen();
+window.onresize = resizeScreen;
